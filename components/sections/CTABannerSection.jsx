@@ -49,7 +49,7 @@ export function CTABannerSection() {
   );
 
   return (
-    <section className="py-16 md:py-24 bg-[#F5F7FA] overflow-hidden">
+    <section className="py-16 md:py-24 bg-ks-off-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         <div
           ref={bannerRef}

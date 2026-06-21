@@ -6,13 +6,13 @@ export const homeFAQs = [
   },
   {
     id: "faq-2",
-    question: "Does this work with Google My Business?",
-    answer: "Absolutely! Karo Simple integrates directly with your Google Business Profile (formerly Google My Business). Happy customers are routed directly to your public Google review link.",
+    question: "Which review platforms does Karo Simple support?",
+    answer: "Karo Simple supports Google Business Profile, Zomato, Swiggy, Justdial, Play Store, Flipkart, IndiaMART, and Blinkit. You can configure which platforms you want to receive reviews on, and direct customers to them automatically based on your business needs.",
   },
   {
     id: "faq-3",
     question: "What happens when a customer gives a 1, 2, or 3-star rating?",
-    answer: "Our smart shield redirects ratings under 4 stars to a private feedback form. This customer feedback is sent directly to your owner dashboard and email, giving you a chance to resolve the issue privately rather than letting it become a public negative review on Google.",
+    answer: "Our smart shield redirects ratings under 4 stars to a private feedback form. This customer feedback is sent directly to your owner dashboard and email, giving you a chance to resolve the issue privately rather than letting it become a public negative review on Google, Zomato, or Swiggy.",
   },
   {
     id: "faq-4",

@@ -15,13 +15,13 @@ export function PainPointSection() {
       icon: <AlertCircle className="w-8 h-8 text-ks-red" />,
       stat: "67%",
       title: "Check Reviews First",
-      desc: "Nearly 67% of customers check Google reviews before visiting a local shop, restaurant, or clinic in India.",
+      desc: "Nearly 67% of customers check online reviews before visiting a local shop, restaurant, or clinic in India.",
     },
     {
       icon: <ShieldAlert className="w-8 h-8 text-ks-red" />,
       stat: "Permanent",
       title: "Permanent Impact",
-      desc: "One single negative review stays on your Google Business Profile forever, lowering your score and reputation daily.",
+      desc: "One single negative review stays on your public profile (like Google or Zomato) forever, lowering your score and reputation daily.",
     },
     {
       icon: <EyeOff className="w-8 h-8 text-ks-red" />,
@@ -45,7 +45,7 @@ export function PainPointSection() {
             The Reputation Trap
           </span>
           <h2 className="type-h2 md:text-4xl text-ks-navy font-bold leading-tight text-balance" data-reveal>
-            One bad Google review can cost you 10 new customers. You deserve a fair chance.
+            One bad public review can cost you 10 new customers. You deserve a fair chance.
           </h2>
         </div>
 

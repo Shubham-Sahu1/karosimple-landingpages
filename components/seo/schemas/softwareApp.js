@@ -11,7 +11,7 @@ export const softwareAppSchema = {
   operatingSystem: "Web, Android, iOS",
   url: "https://karosimple.in",
   description:
-    "QR-based Google review management platform for Indian small businesses. Collect 5-star reviews, shield negative feedback, and track analytics.",
+    "QR-based multi-platform review and reputation management platform for Indian businesses. Grow reviews on Google, Zomato, Swiggy, Justdial, and more.",
   offers: [
     {
       "@type": "Offer",

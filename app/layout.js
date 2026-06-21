@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import { CookieConsentBanner } from "@/components/layout/CookieConsentBanner";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,17 +13,19 @@ const inter = Inter({
 
 export const metadata = {
   title: {
-    default: "Karo Simple - Get More 5-Star Google Reviews",
+    default: "Karo Simple - Manage Reviews Across Google, Zomato, Swiggy & More",
     template: "%s | Karo Simple",
   },
   description:
-    "AI-powered review management for Indian businesses. Help happy customers leave Google reviews in 10 seconds. Free to start. No credit card required.",
+    "AI-powered reputation and review management for Indian businesses. Direct happy customers to post 5-star reviews on Google, Zomato, Swiggy, Justdial, and more. Free to start.",
   keywords: [
-    "google review management india",
+    "reputation management india",
+    "google review management",
+    "zomato reviews scanner",
+    "justdial review generator",
+    "swiggy reviews builder",
     "qr code review platform",
-    "get more google reviews",
-    "review management software india",
-    "indian business reviews",
+    "get more business reviews",
   ],
   authors: [{ name: "Karo Simple" }],
   creator: "Karo Simple",
@@ -34,23 +37,23 @@ export const metadata = {
     locale: "en_IN",
     url: process.env.NEXT_PUBLIC_APP_URL || "https://karosimple.in",
     siteName: "Karo Simple",
-    title: "Karo Simple - Get More 5-Star Google Reviews",
+    title: "Karo Simple - Manage Reviews Across Google, Zomato, Swiggy & More",
     description:
-      "QR-based review management for Indian businesses. Help happy customers leave Google reviews in seconds. Free to start. No credit card.",
+      "QR-based review routing for Indian businesses. Help happy customers leave reviews on Google, Zomato, Swiggy, Justdial, Play Store, Flipkart, IndiaMART, or Blinkit in seconds.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Karo Simple - Google Review Management for Indian Businesses",
+        alt: "Karo Simple - Reputation Management for Indian Businesses",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Karo Simple - Get More 5-Star Google Reviews",
+    title: "Karo Simple - Manage Reviews Across Google, Zomato, Swiggy & More",
     description:
-      "QR-based review management for Indian businesses. Free to start.",
+      "QR-based review routing for Indian businesses. Free to start.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -68,34 +71,36 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-ks-off-white text-ks-navy">
-        {children}
+    <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col bg-ks-off-white text-ks-navy transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
 
-        {/* Global Toast Notifications */}
-        <Toaster
-          position="top-right"
-          toastOptions={{
-            duration: 4000,
-            style: {
-              background: "#1B2A4A",
-              color: "#FFFFFF",
-              fontWeight: "600",
-              fontSize: "14px",
-              borderRadius: "12px",
-              padding: "12px 16px",
-            },
-            success: {
-              iconTheme: { primary: "#3DAA72", secondary: "#FFFFFF" },
-            },
-            error: {
-              iconTheme: { primary: "#EF4444", secondary: "#FFFFFF" },
-            },
-          }}
-        />
+          {/* Global Toast Notifications */}
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: "#1B2A4A",
+                color: "#FFFFFF",
+                fontWeight: "600",
+                fontSize: "14px",
+                borderRadius: "12px",
+                padding: "12px 16px",
+              },
+              success: {
+                iconTheme: { primary: "#3DAA72", secondary: "#FFFFFF" },
+              },
+              error: {
+                iconTheme: { primary: "#EF4444", secondary: "#FFFFFF" },
+              },
+            }}
+          />
 
-        {/* Cookie Consent — shown on every page for DPDPA 2023 compliance */}
-        <CookieConsentBanner />
+          {/* Cookie Consent — shown on every page for DPDPA 2023 compliance */}
+          <CookieConsentBanner />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -9,7 +9,7 @@ export const featuresData = [
     id: "feat-2",
     iconName: "Sparkles",
     title: "AI Review Helper",
-    description: "Suggests pre-written review answers so customers can post high-quality 5-star feedback to Google with one tap.",
+    description: "Suggests pre-written review answers so customers can post high-quality 5-star feedback to Google, Zomato, or Swiggy with one tap.",
   },
   {
     id: "feat-3",
@@ -27,7 +27,7 @@ export const featuresData = [
     id: "feat-5",
     iconName: "BarChart3",
     title: "Live Analytics Dashboard",
-    description: "Track scan rates, customer feedback, Google conversion metrics, and review growth statistics in real time.",
+    description: "Track scan rates, customer feedback, routing conversion metrics, and review growth statistics in real time.",
   },
   {
     id: "feat-6",

@@ -19,7 +19,7 @@ export function HeroSection() {
   const containerRef = useRef(null);
   const [videoOpen, setVideoOpen] = useState(false);
 
-  const headlineText = "Get More 5-Star Google Reviews - Without Asking";
+  const headlineText = "Get 5-Star Reviews on Google, Zomato, Justdial & More";
   const words = headlineText.split(" ");
 
   useGSAP(() => {
@@ -102,7 +102,7 @@ export function HeroSection() {
               </h1>
               
               <p className="type-body-lg text-ks-white/80 leading-relaxed reveal-item opacity-0">
-                Your happy customers scan a custom QR code and post 5-star reviews on Google in 10 seconds. Unhappy clients route to your private inbox so you can fix issues privately.
+                Your happy customers scan a custom QR code and post 5-star reviews on Google, Zomato, Swiggy, Justdial, Play Store, Flipkart, IndiaMART, or Blinkit in seconds. Unhappy clients route to your private inbox so you can fix issues privately.
               </p>
               
               {/* Buttons Row */}
@@ -141,8 +141,8 @@ export function HeroSection() {
                     KS
                   </div>
                   <div>
-                    <h4 className="type-body font-bold text-ks-white">Google Rating Portal</h4>
-                    <p className="type-body-sm text-ks-white/60">Live Review Agent</p>
+                    <h4 className="type-body font-bold text-ks-white">Smart Review Router</h4>
+                    <p className="type-body-sm text-ks-white/60">Multi-Platform Live Router</p>
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -154,7 +154,7 @@ export function HeroSection() {
                   </div>
                 </div>
                 <div className="bg-ks-green/10 text-ks-green text-xs font-bold p-3 rounded-lg border border-ks-green/20">
-                  🚀 Routed instantly to Google Reviews!
+                  🚀 Routed instantly to your chosen platform!
                 </div>
               </div>
             </div>

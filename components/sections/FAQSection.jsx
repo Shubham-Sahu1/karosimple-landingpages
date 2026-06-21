@@ -30,7 +30,7 @@ export function FAQSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 bg-[#F5F7FA] overflow-hidden"
+      className="py-24 bg-ks-off-white overflow-hidden"
     >
       {/* Inject JSON-LD Schema */}
       <script

@@ -10,7 +10,7 @@ export const pricingPlans = [
     features: [
       { name: "1 Active QR Code", included: true },
       { name: "50 Scans per month", included: true },
-      { name: "Google Review Redirection", included: true },
+      { name: "Multi-Platform Review Routing", included: true },
       { name: "Basic Rating Insights", included: true },
       { name: "Private Feedback Inbox", included: true },
       { name: "WhatsApp Alerts", included: false },
@@ -28,7 +28,7 @@ export const pricingPlans = [
     features: [
       { name: "1 Active Brand QR Code", included: true },
       { name: "Unlimited Scans & Clicks", included: true },
-      { name: "Google Review Redirection", included: true },
+      { name: "Multi-Platform Review Routing", included: true },
       { name: "Standard Analytics", included: true },
       { name: "Private Feedback Shield", included: true },
       { name: "WhatsApp Alerts (Instant)", included: true },
@@ -48,7 +48,7 @@ export const pricingPlans = [
     features: [
       { name: "Up to 5 Branch QR Codes", included: true },
       { name: "Unlimited Scans & Clicks", included: true },
-      { name: "Google Review Redirection", included: true },
+      { name: "Multi-Platform Review Routing", included: true },
       { name: "Advanced Hourly Analytics", included: true },
       { name: "Private Feedback Shield", included: true },
       { name: "WhatsApp Alerts + Reports", included: true },
@@ -67,7 +67,7 @@ export const pricingPlans = [
     features: [
       { name: "Unlimited QR Codes & Locations", included: true },
       { name: "Unlimited Scans & Clicks", included: true },
-      { name: "Google Review Redirection", included: true },
+      { name: "Multi-Platform Review Routing", included: true },
       { name: "Full White-Label Reports", included: true },
       { name: "Private Feedback Shield", included: true },
       { name: "WhatsApp Alerts + Custom Integration", included: true },

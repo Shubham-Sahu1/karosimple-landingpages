@@ -21,6 +21,55 @@
   --foreground: var(--ks-navy);
 }
 
+/* Dark theme variables applied when html has class .dark */
+.dark {
+  --ks-off-white: #0A1120;   /* Page background */
+  --ks-navy: #F8FAFC;        /* Text primary (light slate) */
+  --ks-navy-mid: #F1F5F9;    /* Text secondary (light slate) */
+  --ks-navy-light: #CBD5E1;  /* Slate text */
+  --ks-muted: #94A3B8;       /* Slate muted text */
+  --ks-border: #1E293B;      /* Border color */
+  --ks-green-light: #0E2E1D; /* Muted dark green backdrop */
+  --ks-red-soft: #1C1010;    /* Muted dark red background */
+  --background: var(--ks-off-white);
+  --foreground: var(--ks-navy);
+  /* Note: --ks-white is deliberately NOT redefined here so that text-ks-white / white opacity text classes remain white */
+}
+
+/* Custom overrides to make sure dark-navy sections stay dark navy in dark mode */
+.dark .bg-ks-navy {
+  background-color: #1B2A4A !important;
+}
+.dark .bg-ks-navy-mid {
+  background-color: #253559 !important;
+}
+.dark .bg-ks-navy-light {
+  background-color: #3D4F72 !important;
+}
+.dark .text-ks-white {
+  color: #FFFFFF !important;
+}
+.dark .border-ks-navy-mid {
+  border-color: #253559 !important;
+}
+.dark .border-ks-navy-light {
+  border-color: #3D4F72 !important;
+}
+
+/* Overrides for containers and cards that are white/off-white to become dark-slate in dark mode */
+.dark .bg-ks-white {
+  background-color: #111E35 !important;
+}
+.dark .bg-ks-off-white {
+  background-color: #0A1120 !important;
+}
+.dark .bg-white {
+  background-color: #111E35 !important;
+}
+.dark .text-white {
+  color: #FFFFFF !important;
+}
+
 @theme {
   /* Register color custom properties */
   --color-ks-green: var(--ks-green);

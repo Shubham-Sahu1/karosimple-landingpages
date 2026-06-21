@@ -17,16 +17,16 @@ import { softwareAppSchema } from "@/components/seo/schemas/softwareApp";
 import { homeFaqSchema } from "@/components/seo/schemas/faqPage";
 
 export const metadata = {
-  title: "Karo Simple - Get More 5-Star Google Reviews",
+  title: "Karo Simple - Get 5-Star Reviews on Google, Zomato, Swiggy & More",
   description:
-    "QR-based review management for Indian businesses. Help happy customers leave Google reviews in seconds. Free to start. No credit card.",
+    "QR-based review routing for Indian businesses. Direct happy customers to post reviews on Google, Zomato, Swiggy, Justdial, and more in seconds. Free to start.",
   alternates: {
     canonical: "https://karosimple.in",
   },
   openGraph: {
-    title: "Karo Simple - Get More 5-Star Google Reviews",
+    title: "Karo Simple - Get 5-Star Reviews on Google, Zomato, Swiggy & More",
     description:
-      "QR-based review management for Indian businesses. Help happy customers leave Google reviews in seconds. Free to start. No credit card.",
+      "QR-based review routing for Indian businesses. Direct happy customers to post reviews on Google, Zomato, Swiggy, Justdial, and more in seconds. Free to start.",
     url: "https://karosimple.in",
   },
 };

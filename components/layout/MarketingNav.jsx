@@ -3,16 +3,23 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Sun, Moon } from "lucide-react";
 import { headerNavLinks } from "@/data/navigation";
 import { LOGIN_URL, REGISTER_URL } from "@/lib/constants";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { CTAButton } from "../ui/CTAButton";
+import { useTheme } from "next-themes";
 
 export function MarketingNav() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Extract hash links if we are on the homepage
   const spyIds = headerNavLinks
@@ -59,6 +66,10 @@ export function MarketingNav() {
     return pathname === link.href;
   };
 
+  const logoSrc = isScrolled || isMobileMenuOpen
+    ? (resolvedTheme === "dark" ? "/logo-white.svg" : "/logo.svg")
+    : "/logo-white.svg"; // always white on transparent hero
+
   return (
     <>
       <header
@@ -70,13 +81,12 @@ export function MarketingNav() {
       >
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 outline-none">
-            <span className="text-xl font-extrabold tracking-tight text-ks-navy flex items-center gap-1.5">
-              <span className="w-6 h-6 rounded-lg bg-ks-green flex items-center justify-center text-ks-white font-black text-sm">
-                K
-              </span>
-              <span>Karo <span className="text-ks-green">Simple</span></span>
-            </span>
+          <Link href="/" className="flex items-center outline-none">
+            <img
+              src={mounted ? logoSrc : "/logo-white.svg"}
+              alt="Karo Simple Logo"
+              className="h-7 w-auto md:h-8 object-contain transition-all duration-300"
+            />
           </Link>
 
           {/* Desktop Nav links */}
@@ -99,7 +109,22 @@ export function MarketingNav() {
           </nav>
 
           {/* Desktop Call to Actions */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-5">
+            {/* Theme Toggle */}
+            <button
+              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+              className={`p-2 rounded-full hover:bg-ks-navy/5 dark:hover:bg-ks-white/10 transition-colors outline-none cursor-pointer ${
+                isScrolled ? "text-ks-navy" : "text-ks-white"
+              }`}
+              aria-label="Toggle theme"
+            >
+              {mounted && resolvedTheme === "dark" ? (
+                <Sun className="w-5 h-5 text-yellow-400" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </button>
+
             <Link
               href={LOGIN_URL}
               className={`type-body-sm font-semibold transition-colors duration-200 outline-none ${
@@ -116,7 +141,9 @@ export function MarketingNav() {
           {/* Hamburger button */}
           <button
             onClick={toggleMobileMenu}
-            className="lg:hidden text-ks-navy p-2 outline-none cursor-pointer"
+            className={`lg:hidden p-2 outline-none cursor-pointer transition-colors ${
+              isScrolled || isMobileMenuOpen ? "text-ks-navy" : "text-ks-white"
+            }`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -130,7 +157,7 @@ export function MarketingNav() {
           isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="h-full flex flex-col justify-between p-6">
+        <div className="h-full flex flex-col justify-between p-6 overflow-y-auto">
           <nav className="flex flex-col space-y-5">
             {headerNavLinks.map((link, index) => (
               <Link
@@ -145,7 +172,26 @@ export function MarketingNav() {
             ))}
           </nav>
 
-          <div className="flex flex-col space-y-4 pb-16">
+          <div className="flex flex-col space-y-4 pb-20">
+            {/* Mobile Theme Toggle Row */}
+            <div className="flex items-center justify-between py-3 border-b border-ks-border mb-2">
+              <span className="text-sm font-bold text-ks-navy">Theme</span>
+              <button
+                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-ks-border text-ks-navy text-sm font-semibold outline-none cursor-pointer"
+              >
+                {mounted && resolvedTheme === "dark" ? (
+                  <>
+                    <Sun className="w-4 h-4 text-yellow-400" /> Light Mode
+                  </>
+                ) : (
+                  <>
+                    <Moon className="w-4 h-4 text-ks-navy" /> Dark Mode
+                  </>
+                )}
+              </button>
+            </div>
+
             <CTAButton href={LOGIN_URL} variant="outline" className="w-full">
               Sign In
             </CTAButton>

@@ -8,7 +8,7 @@ import { CTABannerSection } from "@/components/sections/CTABannerSection";
 
 export const metadata = {
   title: "About Karo Simple - Our Mission for Indian SMBs",
-  description: "Learn how Karo Simple helps Indian businesses grow their online reputation with effortless QR-based Google review management.",
+  description: "Learn how Karo Simple helps Indian businesses grow their online reputation with effortless QR-based multi-platform review management.",
   alternates: { canonical: "https://karosimple.in/about" },
   openGraph: {
     title: "About Karo Simple - Our Mission for Indian SMBs",
@@ -84,7 +84,7 @@ export default function AboutPage() {
                   Happy customers leave smiling but rarely think to search for a business on Google Maps just to leave a review. On the other hand, unhappy customers are highly motivated to write public complaints. This creates an unfair rating bias that harms honest businesses.
                 </p>
                 <p className="type-body text-ks-muted leading-relaxed">
-                  We built **Karo Simple** to solve this. By placing a QR code stand at checkout, local merchants can capture customer satisfaction in a single scan. Happy reviews reach Google in seconds, and private concerns reach the owner immediately before becoming public.
+                  We built **Karo Simple** to solve this. By placing a QR code stand at checkout, local merchants can capture customer satisfaction in a single scan. Happy reviews reach public platforms in seconds, and private concerns reach the owner immediately before becoming public.
                 </p>
               </div>
 
@@ -122,7 +122,7 @@ export default function AboutPage() {
               <div className="space-y-3">
                 <h4 className="type-h3 text-ks-navy font-bold">The Ratings Trap Local Businesses Face</h4>
                 <p className="type-body text-ks-muted leading-relaxed">
-                  Search rankings dictate customer visits. If a restaurant has a 3.8 rating because only unhappy people took the effort to write reviews, they lose out on Google search clicks to a competitor rated 4.5. Karo Simple ensures your rating reflects the true satisfaction of your entire client base, not just a vocal minority.
+                  Search rankings dictate customer visits. If a restaurant has a 3.8 rating because only unhappy people took the effort to write reviews, they lose out on search clicks to a competitor rated 4.5. Karo Simple ensures your rating reflects the true satisfaction of your entire client base, not just a vocal minority.
                 </p>
               </div>
             </div>

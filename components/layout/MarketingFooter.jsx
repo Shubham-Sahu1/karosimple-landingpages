@@ -13,15 +13,14 @@ export function MarketingFooter() {
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-6 text-left">
             <Link href="/" className="inline-block outline-none">
-              <span className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
-                <span className="w-7 h-7 rounded-lg bg-ks-green flex items-center justify-center text-ks-white font-black text-base">
-                  K
-                </span>
-                <span>Karo <span className="text-ks-green">Simple</span></span>
-              </span>
+              <img
+                src="/logo-white.svg"
+                alt="Karo Simple Logo"
+                className="h-8 w-auto object-contain"
+              />
             </Link>
             <p className="type-body-sm text-ks-white/70 max-w-sm">
-              Helping local Indian businesses increase their Google reputation effortlessly. Instantly capture happy reviews and filter negative feedback privately.
+              Helping local Indian businesses grow customer reviews on Google, Zomato, Swiggy, and 5+ other platforms effortlessly. Instantly capture 5-star feedback and route low ratings privately.
             </p>
             <div className="flex flex-col space-y-3 pt-2">
               <a

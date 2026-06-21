@@ -55,7 +55,7 @@ export function SocialProofStrip() {
     {
       target: "25000",
       suffix: "+",
-      label: "Google Reviews Generated",
+      label: "Reviews Collected Across Platforms",
       isFloat: false,
     },
     {

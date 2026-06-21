@@ -28,7 +28,7 @@ export function HowItWorksSection() {
       number: "03",
       icon: <Star className="w-8 h-8 text-ks-white" />,
       title: "Smart Split Route",
-      desc: "Happy ratings (4-5★) go to Google Reviews. Unhappy feedback (1-3★) routes privately to you.",
+      desc: "Happy ratings (4-5★) route to Google, Zomato, Swiggy, or any platform you choose. Unhappy ones route privately to you.",
     },
     {
       number: "04",

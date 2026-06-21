@@ -38,7 +38,7 @@ export function PricingCard({
       className={`relative bg-ks-white rounded-2xl p-8 flex flex-col justify-between border transition-all duration-300 h-full ${
         isPopular
           ? "border-ks-green shadow-pricing ring-1 ring-ks-green scale-102 z-10"
-          : "border-[#EEF1F5] shadow-sm hover:shadow-card hover:-translate-y-1"
+          : "border-ks-border shadow-sm hover:shadow-card hover:-translate-y-1"
       }`}
       data-reveal
     >
@@ -67,7 +67,7 @@ export function PricingCard({
           </p>
         )}
 
-        <hr className="border-[#EEF1F5]" />
+        <hr className="border-ks-border" />
 
         <ul className="space-y-4">
           {features.map((feature, i) => (

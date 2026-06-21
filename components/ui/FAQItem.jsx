@@ -8,7 +8,7 @@ export function FAQItem({ value, question, answer }) {
   return (
     <Accordion.Item
       value={value}
-      className="bg-ks-white rounded-xl border border-[#EEF1F5] shadow-sm overflow-hidden transition-all duration-300"
+      className="bg-ks-white rounded-xl border border-ks-border shadow-sm overflow-hidden transition-all duration-300"
     >
       <Accordion.Header className="flex">
         <Accordion.Trigger className="flex flex-1 items-center justify-between px-6 py-4.5 text-left type-body font-bold text-ks-navy hover:text-ks-green transition-colors duration-300 group outline-none cursor-pointer">

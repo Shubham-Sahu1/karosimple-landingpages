@@ -18,16 +18,14 @@
 
 ---
 
-## 🟡 PHASE 1 — Brand Assets & Visual Identity
+## ✅ PHASE 1 — Brand Assets & Visual Identity (Completed)
 > **Needed before:** Building the Navbar, Footer, Hero, and all sections with the real logo
 
 ### 1.1 Logo Files
-- [ ] **SVG logo** (main version, color) → place in `/public/logo.svg`
-- [ ] **SVG logo white version** (for dark/navy backgrounds) → place in `/public/logo-white.svg`
-- [ ] **Favicon** (`.ico` or `.png`, 32×32 or 64×64) → place in `/public/favicon.ico`
-- [ ] **App icon** (512×512 PNG for PWA / Apple touch icon) → place in `/public/icon-512.png`
-
-> ⚠️ Without the logo, I'll use a text placeholder. Provide as SVG for best quality.
+- [x] **SVG logo** (main version, color) → placed in `/public/logo.svg`
+- [x] **SVG logo white version** (for dark/navy backgrounds) → placed in `/public/logo-white.svg`
+- [x] **Favicon** (`.ico` or `.png`, 32×32 or 64×64) → placed in `/public/favicon.ico`
+- [x] **App icon** (512×512 PNG for PWA / Apple touch icon) → placed in `/public/icon-512.png`
 
 ### 1.2 Brand Colors Confirmation
 > The design plan uses:
@@ -35,12 +33,11 @@
 > - **Dark Navy:** `#1B2A4A`
 > - **White / Off-white backgrounds**
 
-- [ ] Confirm these colors are correct, OR share your exact brand hex codes
+- [x] Confirmed colors are correct (and adjusted dark mode overrides to match)
 
 ### 1.3 Open Graph Image (Social Share Preview)
-- [ ] A **1200 × 630px PNG/JPG** image that appears when someone shares your link on WhatsApp/Twitter/Facebook
-- [ ] This can be: your logo on navy background, or a screenshot of the product, or I can design one for you
-- [ ] Place at: `/public/og-image.png`
+- [x] A **1200 × 630px PNG/JPG** image that appears when someone shares your link on WhatsApp/Twitter/Facebook
+- [x] Placed at: `/public/og-image.png`
 
 ---
 
@@ -48,9 +45,9 @@
 > **Needed before:** Building actual section content. Without this, sections use placeholder text.
 
 ### 2.1 Home Page — Hero Section
-- [ ] **Final H1 Headline** (suggested: *"Get More 5-Star Google Reviews — Without Asking"*)
+- [ ] **Final H1 Headline** (suggested: *"Get 5-Star Reviews on Google, Zomato, Justdial & More"*)
   - Confirm or provide your preferred wording:
-- [ ] **Subheadline** (suggested: *"Your happy customers scan a QR code and leave a real review in 10 seconds. Unhappy ones give you private feedback instead."*)
+- [ ] **Subheadline** (suggested: *"Your happy customers scan a QR code and leave a real review on Google, Zomato, Swiggy, or any platform you choose in seconds. Unhappy ones give you private feedback instead."*)
   - Confirm or provide your preferred wording:
 - [ ] **Primary CTA button text** (suggested: *"Start Free Today →"*)
 - [ ] **Secondary CTA button text** (suggested: *"Watch 60-Second Demo"*)
@@ -62,7 +59,7 @@
 > These numbers appear in a navy strip. They animate up from 0.
 - [ ] Confirm or update these stats:
   - `500+` Indian Businesses Trust Karo Simple → Your actual number:
-  - `25,000+` Google Reviews Generated → Your actual number:
+  - `25,000+` Reviews Collected Across Platforms → Your actual number:
   - `0.8★` Average Rating Improvement in 90 Days → Your actual number:
   - `4.9/5` Customer Satisfaction Score → Your actual number:
 
