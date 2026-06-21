@@ -1,10 +1,8 @@
 export const headerNavLinks = [
-  { label: "Home", href: "/", isHash: false },
-  { label: "Features", href: "/#features", isHash: true },
-  { label: "How it Works", href: "/#how-it-works", isHash: true },
-  { label: "Pricing", href: "/pricing", isHash: false },
-  { label: "About", href: "/about", isHash: false },
-  { label: "Contact", href: "/contact", isHash: false },
+  { label: "How It Works", href: "/#how-it-works", isHash: true },
+  { label: "Industries", href: "/#industries", isHash: true },
+  { label: "Pricing", href: "/#pricing", isHash: true },
+  { label: "FAQ", href: "/#faq", isHash: true },
 ];
 
 export const footerLinkGroups = [

@@ -3,34 +3,18 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight, Sun, Moon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { headerNavLinks } from "@/data/navigation";
-import { LOGIN_URL, REGISTER_URL } from "@/lib/constants";
-import { useScrollSpy } from "@/hooks/useScrollSpy";
-import { CTAButton } from "../ui/CTAButton";
-import { useTheme } from "next-themes";
+import { REGISTER_URL } from "@/lib/constants";
 
 export function MarketingNav() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Extract hash links if we are on the homepage
-  const spyIds = headerNavLinks
-    .filter((link) => link.isHash)
-    .map((link) => link.href.replace("/#", ""));
-
-  const activeSection = useScrollSpy(spyIds);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 80) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -59,91 +43,52 @@ export function MarketingNav() {
     });
   };
 
-  const isLinkActive = (link) => {
-    if (link.isHash) {
-      return pathname === "/" && activeSection === link.href.replace("/#", "");
-    }
-    return pathname === link.href;
-  };
-
-  const logoSrc = isScrolled || isMobileMenuOpen
-    ? (resolvedTheme === "dark" ? "/logo-white.svg" : "/logo.svg")
-    : "/logo-white.svg"; // always white on transparent hero
-
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 h-16 flex items-center md:h-16 ${
-          isScrolled || isMobileMenuOpen
-            ? "bg-ks-white border-b border-ks-border shadow-nav"
-            : "bg-transparent"
+        className={`fixed top-0 left-0 w-full z-[999] transition-all duration-300 flex items-center border-b border-[#253559] ${
+          isScrolled
+            ? "h-[60px] bg-[rgba(27,42,74,0.95)] backdrop-blur-[30px] shadow-nav"
+            : "h-[68px] bg-[rgba(27,42,74,0.85)] backdrop-blur-[20px]"
         }`}
       >
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center outline-none">
             <img
-              src={mounted ? logoSrc : "/logo-white.svg"}
+              src="/logo-white.svg"
               alt="Karo Simple Logo"
-              className="h-7 w-auto md:h-8 object-contain transition-all duration-300"
+              className="h-[30px] w-auto object-contain"
             />
           </Link>
 
           {/* Desktop Nav links */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center gap-[32px]">
             {headerNavLinks.map((link, index) => (
               <Link
                 key={index}
                 href={link.href}
-                className={`type-body-sm font-semibold transition-colors duration-200 outline-none ${
-                  isLinkActive(link)
-                    ? "text-ks-green"
-                    : isScrolled
-                    ? "text-ks-navy hover:text-ks-green"
-                    : "text-ks-white/80 hover:text-ks-white"
-                }`}
+                className="font-sans font-medium text-[0.9rem] text-[#CBD5E1] hover:text-[#3DAA72] transition-colors duration-200 outline-none"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* Desktop Call to Actions */}
-          <div className="hidden lg:flex items-center space-x-5">
-            {/* Theme Toggle */}
-            <button
-              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-              className={`p-2 rounded-full hover:bg-ks-navy/5 dark:hover:bg-ks-white/10 transition-colors outline-none cursor-pointer ${
-                isScrolled ? "text-ks-navy" : "text-ks-white"
-              }`}
-              aria-label="Toggle theme"
+          {/* Desktop Call to Action */}
+          <div className="hidden lg:block">
+            <a
+              href={REGISTER_URL}
+              className="inline-block font-sans font-semibold text-[0.95rem] text-[#FFFFFF] bg-[#3DAA72] px-[24px] py-[10px] rounded-full transition-all duration-300 transform hover:bg-[#2D8A5A] hover:-translate-y-[1px] hover:shadow-[0_4px_20px_rgba(61,170,114,0.35)] outline-none"
             >
-              {mounted && resolvedTheme === "dark" ? (
-                <Sun className="w-5 h-5 text-yellow-400" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
-            </button>
-
-            <Link
-              href={LOGIN_URL}
-              className={`type-body-sm font-semibold transition-colors duration-200 outline-none ${
-                isScrolled ? "text-ks-navy hover:text-ks-green" : "text-ks-white/80 hover:text-ks-white"
-              }`}
-            >
-              Sign In
-            </Link>
-            <CTAButton href={REGISTER_URL} variant="primary" fullWidthMobile={false}>
-              Get Started <ArrowRight className="w-4 h-4 ml-1.5" />
-            </CTAButton>
+              Start Free →
+            </a>
           </div>
 
           {/* Hamburger button */}
           <button
             onClick={toggleMobileMenu}
-            className={`lg:hidden p-2 outline-none cursor-pointer transition-colors ${
-              isScrolled || isMobileMenuOpen ? "text-ks-navy" : "text-ks-white"
-            }`}
+            className="lg:hidden p-2 text-[#CBD5E1] hover:text-[#FFFFFF] outline-none cursor-pointer transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -153,55 +98,35 @@ export function MarketingNav() {
 
       {/* Mobile Drawer Menu */}
       <div
-        className={`fixed inset-0 top-16 z-40 bg-ks-white lg:hidden transition-transform duration-300 ${
-          isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
+        className={`fixed inset-0 top-[60px] z-[998] bg-[#1B2A4A] lg:hidden transition-transform duration-300 ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="h-full flex flex-col justify-between p-6 overflow-y-auto">
-          <nav className="flex flex-col space-y-5">
+        <div className="h-full flex flex-col justify-between p-6 pb-24 overflow-y-auto">
+          <nav className="flex flex-col space-y-6">
             {headerNavLinks.map((link, index) => (
               <Link
                 key={index}
                 href={link.href}
-                className={`text-lg font-bold py-2 border-b border-ks-border ${
-                  isLinkActive(link) ? "text-ks-green" : "text-ks-navy"
-                }`}
+                className="text-lg font-bold text-[#CBD5E1] hover:text-[#3DAA72] py-3 border-b border-[#253559] transition-colors"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="flex flex-col space-y-4 pb-20">
-            {/* Mobile Theme Toggle Row */}
-            <div className="flex items-center justify-between py-3 border-b border-ks-border mb-2">
-              <span className="text-sm font-bold text-ks-navy">Theme</span>
-              <button
-                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-ks-border text-ks-navy text-sm font-semibold outline-none cursor-pointer"
-              >
-                {mounted && resolvedTheme === "dark" ? (
-                  <>
-                    <Sun className="w-4 h-4 text-yellow-400" /> Light Mode
-                  </>
-                ) : (
-                  <>
-                    <Moon className="w-4 h-4 text-ks-navy" /> Dark Mode
-                  </>
-                )}
-              </button>
-            </div>
-
-            <CTAButton href={LOGIN_URL} variant="outline" className="w-full">
-              Sign In
-            </CTAButton>
-            <CTAButton href={REGISTER_URL} variant="primary" className="w-full">
-              Get Started Free <ArrowRight className="w-4 h-4 ml-1.5" />
-            </CTAButton>
+          <div className="flex flex-col space-y-4 pt-8">
+            <a
+              href={REGISTER_URL}
+              className="w-full text-center font-bold text-base text-[#FFFFFF] bg-[#3DAA72] py-[14px] rounded-full hover:bg-[#2D8A5A] transition-colors outline-none"
+            >
+              Start Free Today →
+            </a>
           </div>
         </div>
       </div>
     </>
   );
 }
+
 export default MarketingNav;

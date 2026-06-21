@@ -1,25 +1,35 @@
+"use client";
+
 import React from "react";
 import * as LucideIcons from "lucide-react";
 
 export function FeatureCard({ iconName, title, description }) {
-  // Dynamically resolve icon from Lucide
   const IconComponent = LucideIcons[iconName] || LucideIcons.HelpCircle;
 
   return (
     <div
-      className="bg-ks-white rounded-2xl p-8 border border-ks-border shadow-sm hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col items-start text-left group"
+      className="group bg-[#253559] rounded-2xl p-6 border border-[#3D4F72]
+                  hover:border-[#3DAA72]/50 hover:shadow-[0_4px_24px_rgba(61,170,114,0.1)] hover:scale-[1.02]
+                  transition-all duration-200 ease-in-out flex flex-col items-start text-left cursor-default"
       data-reveal
     >
-      <div className="bg-ks-green-light p-3.5 rounded-xl text-ks-green mb-5 group-hover:bg-ks-green group-hover:text-ks-white transition-colors duration-300">
-        <IconComponent className="w-8 h-8" />
+      {/* Green icon tray */}
+      <div className="flex items-center justify-center rounded-xl p-2.5 bg-[rgba(61,170,114,0.12)] text-[#3DAA72] mb-4 w-11 h-11
+                      group-hover:bg-[rgba(61,170,114,0.2)] transition-colors duration-200">
+        <IconComponent className="w-6 h-6" strokeWidth={2} />
       </div>
-      <h3 className="type-h3 text-ks-navy mb-2">
+
+      {/* Title */}
+      <h3 className="font-sans font-bold text-[1.125rem] text-white mb-2 leading-snug">
         {title}
       </h3>
-      <p className="type-body text-ks-muted leading-relaxed">
+
+      {/* Description */}
+      <p className="font-sans text-[0.875rem] text-[#94A3B8] leading-relaxed line-clamp-3">
         {description}
       </p>
     </div>
   );
 }
+
 export default FeatureCard;
