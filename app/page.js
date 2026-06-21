@@ -2,13 +2,17 @@ import React from "react";
 import { MarketingNav } from "@/components/layout/MarketingNav";
 import { MarketingFooter } from "@/components/layout/MarketingFooter";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { PainPointSection } from "@/components/sections/PainPointSection";
-import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
+import { StatsStrip } from "@/components/sections/StatsStrip";
 import { FeaturesSection } from "@/components/sections/FeaturesSection";
-import { SocialProofStrip } from "@/components/sections/SocialProofStrip";
+import { ProblemStorySection } from "@/components/sections/ProblemStorySection";
+import { PainComparisonSection } from "@/components/sections/PainComparisonSection";
+import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
+import { BeforeAfterSection } from "@/components/sections/BeforeAfterSection";
+import { PlatformIntegrations } from "@/components/sections/PlatformIntegrations";
+import { IndustriesSection } from "@/components/sections/IndustriesSection";
+import { ROICalculatorSection } from "@/components/sections/ROICalculatorSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { PricingPreviewSection } from "@/components/sections/PricingPreviewSection";
-import { TrustBarSection } from "@/components/sections/TrustBarSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTABannerSection } from "@/components/sections/CTABannerSection";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -17,16 +21,16 @@ import { softwareAppSchema } from "@/components/seo/schemas/softwareApp";
 import { homeFaqSchema } from "@/components/seo/schemas/faqPage";
 
 export const metadata = {
-  title: "Karo Simple - Get 5-Star Reviews on Google, Zomato, Swiggy & More",
+  title: "Karo Simple - Turn Every Happy Customer Into a 5-Star Review Automatically",
   description:
-    "QR-based review routing for Indian businesses. Direct happy customers to post reviews on Google, Zomato, Swiggy, Justdial, and more in seconds. Free to start.",
+    "QR-based review routing for Indian businesses. Direct happy customers to post reviews on Google, Zomato, Swiggy, Justdial, and more in seconds. Private feedback forms protect your reputation.",
   alternates: {
     canonical: "https://karosimple.in",
   },
   openGraph: {
-    title: "Karo Simple - Get 5-Star Reviews on Google, Zomato, Swiggy & More",
+    title: "Karo Simple - Turn Every Happy Customer Into a 5-Star Review Automatically",
     description:
-      "QR-based review routing for Indian businesses. Direct happy customers to post reviews on Google, Zomato, Swiggy, Justdial, and more in seconds. Free to start.",
+      "QR-based review routing for Indian businesses. Direct happy customers to post reviews on Google, Zomato, Swiggy, Justdial, and more in seconds. Private feedback forms protect your reputation.",
     url: "https://karosimple.in",
   },
 };
@@ -44,34 +48,46 @@ export default function Home() {
 
       {/* Main Persuasion Funnel Layout */}
       <main className="flex-grow">
-        {/* GRAB ATTENTION */}
+        {/* SECTION 2: HERO */}
         <HeroSection />
 
-        {/* NAME THE PAIN */}
-        <PainPointSection />
+        {/* SECTION 3: STATS STRIP */}
+        <StatsStrip />
 
-        {/* SHOW THE PROCESS */}
-        <HowItWorksSection />
-
-        {/* LIST FEATURES */}
+        {/* SECTION 4: FEATURES */}
         <FeaturesSection />
 
-        {/* BUILD NUMERICAL PROOF */}
-        <SocialProofStrip />
+        {/* SECTION 5: PROBLEM STORY */}
+        <ProblemStorySection />
 
-        {/* SHOW SOCIAL PROOF TESTIMONIALS */}
+        {/* SECTION 6: PAIN COMPARISON */}
+        <PainComparisonSection />
+
+        {/* SECTION 7: HOW IT WORKS */}
+        <HowItWorksSection />
+
+        {/* SECTION 8: BEFORE VS AFTER REVIEWS */}
+        <BeforeAfterSection />
+
+        {/* SECTION 9: PLATFORM INTEGRATIONS */}
+        <PlatformIntegrations />
+
+        {/* SECTION 10: INDUSTRIES */}
+        <IndustriesSection />
+
+        {/* SECTION 11: ROI CALCULATOR */}
+        <ROICalculatorSection />
+
+        {/* SECTION 12: WHO IT IS FOR (TESTIMONIALS PLACEHOLDER) */}
         <TestimonialsSection />
 
-        {/* PRICING PREVIEW — ANCHOR FOR DECISION */}
+        {/* SECTION 13: PRICING PREVIEW */}
         <PricingPreviewSection />
 
-        {/* TRUST BAR — CITY COVERAGE + COMPLIANCE */}
-        <TrustBarSection />
-
-        {/* RESOLVE OBJECTIONS */}
+        {/* SECTION 14: FAQ ACCORDION */}
         <FAQSection />
 
-        {/* CLOSE THE DEAL */}
+        {/* SECTION 15: FINAL CTA */}
         <CTABannerSection />
       </main>
 
