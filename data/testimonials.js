@@ -1,0 +1,32 @@
+export const testimonialsData = [
+  {
+    id: "test-1",
+    name: "Ramesh Agarwal",
+    role: "Owner",
+    businessName: "Agarwal Hair Salon",
+    city: "Raipur, CG",
+    quote: "We went from 3.4 to 4.7 stars in 2 months. Every customer who walks in now scans the QR and leaves a review. It has completely transformed our footfall.",
+    stars: 5,
+    initials: "RA",
+  },
+  {
+    id: "test-2",
+    name: "Priya Sharma",
+    role: "Founder",
+    businessName: "The Spice Bistro",
+    city: "Pune, MH",
+    quote: "The private feedback shield saved us! An angry customer gave us 2 stars privately, we called him back and resolved the issue before he could leave a public review on Google.",
+    stars: 5,
+    initials: "PS",
+  },
+  {
+    id: "test-3",
+    name: "Dr. Anil Mehta",
+    role: "Head Dentist",
+    businessName: "Mehta Dental Clinic",
+    city: "Jaipur, RJ",
+    quote: "Our clinic's Google rating jumped from 3.9 to 4.6. New patients search for dentists in Jaipur and trust us immediately because of our count of reviews.",
+    stars: 5,
+    initials: "AM",
+  },
+];
