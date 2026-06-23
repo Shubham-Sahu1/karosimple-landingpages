@@ -29,10 +29,22 @@ export function VideoModal({
     }
   }, [open]);
 
-  // Build YouTube embed URL with autoplay
-  const embedUrl = videoUrl.includes("youtube.com/embed")
-    ? `${videoUrl}?autoplay=1&rel=0&modestbranding=1`
-    : videoUrl;
+  // Parse standard YouTube links to embeddable format
+  const getEmbedUrl = (url) => {
+    if (!url) return "";
+    let id = "";
+    if (url.includes("youtube.com/embed/")) {
+      id = url.split("youtube.com/embed/")[1]?.split("?")[0];
+    } else if (url.includes("youtu.be/")) {
+      id = url.split("youtu.be/")[1]?.split("?")[0];
+    } else if (url.includes("youtube.com/watch")) {
+      id = url.split("v=")[1]?.split("&")[0];
+    }
+    const base = id ? `https://www.youtube.com/embed/${id}` : url;
+    return `${base}?autoplay=1&rel=0&modestbranding=1`;
+  };
+
+  const embedUrl = getEmbedUrl(videoUrl);
 
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>

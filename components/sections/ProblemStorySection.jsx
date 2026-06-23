@@ -107,7 +107,7 @@ export function ProblemStorySection() {
                   </h3>
                   <p className="font-sans text-[1rem] text-[#CBD5E1] leading-relaxed">
                     A satisfied customer finishes their meal, gets their haircut,
-                    leaves your clinic — and thinks{" "}
+                    leaves your clinic, and thinks{" "}
                     <em>"I should leave a review."</em> But life gets in the
                     way. They forget. That review? Gone forever. Meanwhile, one
                     bad experience and an angry customer is pulling out their
@@ -152,7 +152,7 @@ export function ProblemStorySection() {
                     1-star review drags down your average so much that you need
                     15 five-star reviews just to recover. And vague "Nice place"
                     reviews? Google treats them as spam signals. You need real,
-                    detailed reviews — consistently.
+                    detailed reviews, consistently.
                   </p>
                 </div>
                 <div className="flex justify-center lg:order-1">
@@ -200,7 +200,7 @@ export function ProblemStorySection() {
                     or in your invoice. Happy customers scan and get prompted to
                     write a detailed review on Google. Karo Simple even helps
                     them write it better. Unhappy customers get a private
-                    feedback form — their complaint comes to you, not the
+                    feedback form. Their complaint comes to you, not the
                     internet.
                   </p>
                 </div>

@@ -26,7 +26,7 @@ export const addOns = [
     price: "₹399",
     billingNote: "Adds 100 generation credits",
     description:
-      "Running low mid-month? Top up your AI review generation credits instantly. No subscription, no renewal — pay once, use when needed.",
+      "Running low mid-month? Top up your AI review generation credits instantly. No subscription, no renewal: pay once, use when needed.",
     isOneTime: true,
   },
   {
@@ -36,7 +36,7 @@ export const addOns = [
     price: "₹999",
     billingNote: "50 reviews posted per month",
     description:
-      "Our team posts your approved reviews for you, spaced out naturally over the month. No effort on your side — just watch your rating climb.",
+      "Our team posts your approved reviews for you, spaced out naturally over the month. No effort on your side: just watch your rating climb.",
     isOneTime: false,
   },
   {
@@ -46,7 +46,7 @@ export const addOns = [
     price: "₹1,999",
     billingNote: "Delivered within 3 days",
     description:
-      "A designer builds a fully branded QR landing page that matches your business identity — colours, fonts, logo, everything. One-time order.",
+      "A designer builds a fully branded QR landing page that matches your business identity: colours, fonts, logo, everything. One-time order.",
     isOneTime: true,
   },
   {

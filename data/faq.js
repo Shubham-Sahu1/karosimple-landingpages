@@ -3,7 +3,7 @@ export const homeFAQs = [
     id: "faq-1",
     question: "Is it really free to start?",
     answer:
-      "Yes. Free plan gives you 1 QR code and up to 5 review suggestions in your pool. There is no trial period — it stays free until you decide you want more. No credit card required.",
+      "Yes. Free plan gives you 1 QR code and up to 5 review suggestions in your pool. There is no trial period; it stays free until you decide you want more. No credit card required.",
   },
   {
     id: "faq-2",
@@ -42,7 +42,7 @@ export const pricingFAQs = [
     id: "pfaq-1",
     question: "Is the free plan actually free forever, or does it expire?",
     answer:
-      "Completely free, no time limit. You get 1 QR code, Google integration and up to 5 review suggestions in your pool. There is no trial period — it stays free until you decide you want more.",
+      "Completely free, no time limit. You get 1 QR code, Google integration and up to 5 review suggestions in your pool. There is no trial period; it stays free until you decide you want more.",
   },
   {
     id: "pfaq-2",

@@ -7,9 +7,9 @@ import { MarketingNav } from "@/components/layout/MarketingNav";
 import { MarketingFooter } from "@/components/layout/MarketingFooter";
 
 export const metadata = {
-  title: "Features — Karo Simple | Everything Your Reputation Needs",
+  title: "Features - Karo Simple | Everything Your Reputation Needs",
   description:
-    "From the QR code your customer scans to the 5-star review that shows up on Google — Karo Simple handles the whole thing. See every feature that makes it work.",
+    "From the QR code your customer scans to the 5-star review that shows up on Google, Karo Simple handles the whole thing. See every feature that makes it work.",
 };
 
 // How It Works steps
@@ -57,7 +57,7 @@ export default function FeaturesPage() {
 
           {/* Subheadline */}
           <p className="text-[1.125rem] text-white/75 max-w-[600px] mx-auto leading-relaxed mb-10">
-            From the QR code your customer scans to the 5-star review that shows up on Google — Karo Simple handles the whole thing. Here is every feature that makes it work.
+            From the QR code your customer scans to the 5-star review that shows up on Google, Karo Simple handles the whole thing. Here is every feature that makes it work.
           </p>
 
           {/* CTA */}
@@ -78,7 +78,7 @@ export default function FeaturesPage() {
             {steps.map((step) => (
               <div key={step.number} className="relative pl-5 border-l-[3px] border-[#3DAA72]">
                 {/* Faint background number */}
-                <span className="absolute -top-2 -left-1 text-[4rem] font-extrabold text-[#3D4F72]/30 leading-none select-none pointer-events-none">
+                <span className="absolute -top-2 right-4 text-[4rem] font-extrabold text-[#3D4F72]/20 leading-none select-none pointer-events-none">
                   {step.number}
                 </span>
                 <div className="relative z-10">

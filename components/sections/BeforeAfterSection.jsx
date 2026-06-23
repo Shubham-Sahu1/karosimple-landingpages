@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Clock, Phone, EyeOff, Check } from "lucide-react";
 
 export function BeforeAfterSection() {
   const beforeReviews = [
@@ -9,7 +10,7 @@ export function BeforeAfterSection() {
       time: "2 months ago",
       rating: "★★★★★",
       text: "“Nice place.”",
-      warning: "⚠ Low quality — Google may suppress",
+      warning: "⚠ Low quality, Google may suppress",
       isNegative: false,
     },
     {
@@ -57,7 +58,7 @@ export function BeforeAfterSection() {
             The difference Karo Simple makes
           </h2>
           <p className="font-sans text-[1.1rem] text-[#CBD5E1] max-w-[620px] mx-auto leading-relaxed">
-            Real review quality — the type that actually builds trust and ranks you higher on search engines.
+            Real review quality: the type that actually builds trust and ranks you higher on search engines.
           </p>
         </div>
 
@@ -73,28 +74,30 @@ export function BeforeAfterSection() {
               {beforeReviews.map((review, i) => (
                 <div
                   key={i}
-                  className={`bg-[#253559] border border-[rgba(239,68,68,0.25)] rounded-2xl p-5 space-y-3 ${
+                  className={`bg-[#253559] border border-[rgba(239,68,68,0.25)] rounded-2xl p-5 flex flex-col justify-between lg:h-[210px] min-h-[210px] h-auto transition-all duration-300 transform hover:-translate-y-1 shadow-card ${
                     review.isNegative ? "border-[rgba(239,68,68,0.45)]" : ""
                   }`}
                 >
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-[#3D4F72] flex items-center justify-center text-xs font-bold text-[#CBD5E1]">
-                        {review.reviewer[0]}
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-[#3D4F72] flex items-center justify-center text-xs font-bold text-[#CBD5E1]">
+                          {review.reviewer[0]}
+                        </div>
+                        <div>
+                          <div className="text-[#F1F5F9] text-xs font-bold">{review.reviewer}</div>
+                          <div className="text-[#6B7A99] text-[0.7rem]">{review.time}</div>
+                        </div>
                       </div>
-                      <div>
-                        <div className="text-[#F1F5F9] text-xs font-bold">{review.reviewer}</div>
-                        <div className="text-[#6B7A99] text-[0.7rem]">{review.time}</div>
+                      <div className={review.isNegative ? "text-[#EF4444] text-xs" : "text-yellow-600 text-xs"}>
+                        {review.rating}
                       </div>
                     </div>
-                    <div className={review.isNegative ? "text-[#EF4444] text-xs" : "text-yellow-600 text-xs"}>
-                      {review.rating}
-                    </div>
-                  </div>
 
-                  <p className={`text-[0.88rem] leading-relaxed ${review.isNegative ? "text-[#EF4444]" : "text-[#6B7A99] italic"}`}>
-                    {review.text}
-                  </p>
+                    <p className={`text-[0.88rem] leading-relaxed ${review.isNegative ? "text-[#EF4444]" : "text-[#6B7A99] italic"}`}>
+                      {review.text}
+                    </p>
+                  </div>
 
                   <div className="text-[0.75rem] font-bold text-[#EF4444] bg-[rgba(239,68,68,0.05)] border border-[rgba(239,68,68,0.1)] py-1.5 px-3.5 rounded-full flex items-center gap-1.5 w-fit">
                     {review.warning}
@@ -114,9 +117,9 @@ export function BeforeAfterSection() {
               {afterReviews.map((review, i) => (
                 <div
                   key={i}
-                  className="bg-[#253559] border border-[rgba(61,170,114,0.25)] rounded-2xl p-5 space-y-3 shadow-[0_0_20px_rgba(61,170,114,0.03)]"
+                  className="bg-[#253559] border border-[rgba(61,170,114,0.25)] rounded-2xl p-5 flex flex-col lg:h-[210px] min-h-[210px] h-auto shadow-[0_0_20px_rgba(61,170,114,0.03)] transition-all duration-300 transform hover:-translate-y-1 shadow-card"
                 >
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center mb-3">
                     <div className="flex items-center gap-2">
                       {/* Gradient avatar using green/navy scheme */}
                       <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#3DAA72] to-[#253559] flex items-center justify-center text-xs font-bold text-white">
@@ -137,6 +140,58 @@ export function BeforeAfterSection() {
                   </p>
                 </div>
               ))}
+
+              {/* Private Dashboard Feedback Card (Routes negative reviews to inbox instead of public profile) */}
+              <div className="bg-[#253559] border border-[rgba(61,170,114,0.25)] rounded-2xl p-5 flex flex-col justify-between lg:h-[210px] min-h-[210px] h-auto shadow-[0_0_20px_rgba(61,170,114,0.03)] transition-all duration-300 transform hover:-translate-y-1 shadow-card">
+                <div className="space-y-2.5">
+                  {/* Card Header */}
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 text-[#EF4444] px-2 py-0.5 rounded-full text-[10px] font-bold">
+                      <span>3★</span>
+                      <span className="text-[9px] text-[#EF4444]/70 tracking-normal flex">
+                        ★★★<span className="text-white/20">☆☆</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Comment Box */}
+                  <div className="bg-[rgba(239,68,68,0.03)] border border-[rgba(239,68,68,0.06)] rounded-xl p-2.5 text-[0.8rem] text-[#F1F5F9] leading-relaxed italic">
+                    "Not Like The service "
+                  </div>
+
+                  {/* Actions Footer */}
+                  <div className="flex items-center justify-between gap-2 pt-2 border-t border-[#3D4F72]/20">
+                    {/* Masked Phone Number */}
+                    <div className="flex items-center gap-1 text-[#CBD5E1] text-[10px] font-semibold">
+                      <Phone size={10} className="text-[#6B7A99]" />
+                      <span>+91 9876XX XXXX10</span>
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-1">
+                      <button className="inline-flex items-center gap-1 border border-[#3D4F72] text-[#CBD5E1] hover:text-white px-2 py-0.5 rounded-md text-[9px] font-semibold transition-all duration-200 cursor-pointer">
+                        <Phone size={8} />
+                        <span>Call</span>
+                      </button>
+                      <button className="inline-flex items-center gap-1 border border-[#3D4F72] text-[#CBD5E1] hover:text-white px-2 py-0.5 rounded-md text-[9px] font-semibold transition-all duration-200 cursor-pointer">
+                        <EyeOff size={8} />
+                        <span>Ignore</span>
+                      </button>
+                      <button className="inline-flex items-center gap-1 bg-[#3DAA72] hover:bg-[#2D8A5A] text-white px-2 py-0.5 rounded-md text-[9px] font-semibold transition-all duration-200 shadow-sm cursor-pointer">
+                        <Check size={8} />
+                        <span>Resolved</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Green Toast */}
+                <div className="pt-0.5">
+                  <div className="text-[0.68rem] font-bold text-[#3DAA72] bg-[rgba(61,170,114,0.05)] border border-[rgba(61,170,114,0.1)] py-0.5 px-2 rounded-full flex items-center gap-1 w-fit">
+                    🛡️ Negative review comes to your dashboard, not posted anywhere
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

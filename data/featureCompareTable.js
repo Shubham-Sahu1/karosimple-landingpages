@@ -1,4 +1,4 @@
-// Feature comparison table — verbatim from Features and pricing.md
+// Feature comparison table: verbatim from Features and pricing.md
 // Do NOT modify any values without explicit user confirmation
 
 export const featureTableGroups = [
@@ -32,7 +32,7 @@ export const featureTableGroups = [
     rows: [
       { feature: "AI review credits per month", free: "5 trial", starter: "50", pro: "200", agency: "10,000 pool" },
       { feature: "Review length categories generated", free: "Short only", starter: "S / M / L", pro: "S/M/L + persona", agency: "Full customisation" },
-      { feature: "Batch size per generation", free: "—", starter: "10 reviews", pro: "20 reviews", agency: "50 reviews" },
+      { feature: "Batch size per generation", free: "✗", starter: "10 reviews", pro: "20 reviews", agency: "50 reviews" },
       { feature: "Keyword and SEO injection", free: "✗", starter: "2 keywords", pro: "5 keywords", agency: "5 keywords" },
       { feature: "Negative Keyword Injection", free: "✗", starter: "✓", pro: "✓", agency: "✓" },
       { feature: "Extra Instructions (Prompt)", free: "✗", starter: "✓", pro: "✓", agency: "✓" },
@@ -93,7 +93,7 @@ export const featureTableGroups = [
       { feature: "Keyword ranking correlation report", free: "✗", starter: "✗", pro: "✓", agency: "✓" },
       { feature: "Monthly Google ranking tracker", free: "✗", starter: "✗", pro: "✓", agency: "✓" },
       { feature: "Monthly SEO impact report (PDF)", free: "✗", starter: "✗", pro: "✓", agency: "✓" },
-      { feature: "AI suggestion — what to generate next", free: "✗", starter: "✗", pro: "✓", agency: "✓" },
+      { feature: "AI suggestion: what to generate next", free: "✗", starter: "✗", pro: "✓", agency: "✓" },
       { feature: "Per-employee QR performance", free: "✗", starter: "Basic", pro: "Full", agency: "Full + cross-business" },
       { feature: "Employee leaderboard", free: "✗", starter: "✗", pro: "✓", agency: "Per-business + agency-wide" },
       { feature: "White-label analytics report for clients", free: "✗", starter: "✗", pro: "✗", agency: "✓" },
@@ -140,7 +140,7 @@ export const featureTableGroups = [
       { feature: "Resell at your own price", free: "✗", starter: "✗", pro: "✗", agency: "✓" },
       { feature: "Dedicated account manager", free: "✗", starter: "✗", pro: "✗", agency: "✓" },
       { feature: "Managed posting included (up to 2 businesses)", free: "✗", starter: "✗", pro: "Add-on ₹999", agency: "Included" },
-      { feature: "Viewport — log in as any client business", free: "✗", starter: "✗", pro: "✗", agency: "✓" },
+      { feature: "Viewport: log in as any client business", free: "✗", starter: "✗", pro: "✗", agency: "✓" },
     ],
   },
 ];

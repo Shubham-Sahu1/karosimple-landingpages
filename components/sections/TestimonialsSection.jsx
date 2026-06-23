@@ -33,7 +33,7 @@ export function TestimonialsSection() {
             WHO IT’S FOR
           </span>
           <h2 className="font-sans font-bold text-[2rem] md:text-[3rem] leading-tight text-white max-w-4xl mx-auto">
-            Built for business owners who know their service is good — but their rating doesn’t show it.
+            Built for business owners who know their service is good, but their rating doesn’t show it.
           </h2>
         </div>
 

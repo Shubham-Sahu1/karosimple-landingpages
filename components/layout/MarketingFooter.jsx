@@ -27,7 +27,7 @@ export function MarketingFooter() {
                 href={`mailto:${CONTACT_EMAIL}`}
                 className="flex items-center text-[#94A3B8] hover:text-[#F5A623] transition-colors text-sm"
               >
-                <Mail className="w-4.5 h-4.5 mr-2" />
+                <Mail className="w-5 h-5 mr-2" />
                 {CONTACT_EMAIL}
               </a>
               {/* WhatsApp mobile button */}

@@ -107,10 +107,10 @@ export function PricingPreviewSection() {
 
         {/* Billing Toggle (3 Pill Buttons) */}
         <div className="flex justify-center">
-          <div className="inline-flex bg-[#253559] border border-[#3D4F72] p-1.5 rounded-full items-center gap-1">
+          <div className="flex flex-wrap justify-center bg-[#253559] border border-[#3D4F72] p-2 rounded-[20px] sm:rounded-full items-center gap-1 max-w-full mx-auto">
             <button
               onClick={() => setCycle("monthly")}
-              className={`px-5 py-2.5 rounded-full font-sans font-bold text-xs transition-colors duration-200 cursor-pointer outline-none ${
+              className={`px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-full font-sans font-bold text-[11px] sm:text-xs transition-colors duration-200 cursor-pointer outline-none ${
                 cycle === "monthly"
                   ? "bg-[#3DAA72] text-white"
                   : "text-[#CBD5E1] hover:text-white bg-transparent"
@@ -120,7 +120,7 @@ export function PricingPreviewSection() {
             </button>
             <button
               onClick={() => setCycle("half-yearly")}
-              className={`px-5 py-2.5 rounded-full font-sans font-bold text-xs transition-colors duration-200 cursor-pointer outline-none ${
+              className={`px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-full font-sans font-bold text-[11px] sm:text-xs transition-colors duration-200 cursor-pointer outline-none ${
                 cycle === "half-yearly"
                   ? "bg-[#3DAA72] text-white"
                   : "text-[#CBD5E1] hover:text-white bg-transparent"
@@ -130,7 +130,7 @@ export function PricingPreviewSection() {
             </button>
             <button
               onClick={() => setCycle("annual")}
-              className={`px-5 py-2.5 rounded-full font-sans font-bold text-xs transition-colors duration-200 cursor-pointer outline-none ${
+              className={`px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-full font-sans font-bold text-[11px] sm:text-xs transition-colors duration-200 cursor-pointer outline-none ${
                 cycle === "annual"
                   ? "bg-[#3DAA72] text-white"
                   : "text-[#CBD5E1] hover:text-white bg-transparent"

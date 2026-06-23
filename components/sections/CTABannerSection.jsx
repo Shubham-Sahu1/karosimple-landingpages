@@ -33,20 +33,20 @@ export function CTABannerSection() {
 
         {/* Subtext */}
         <p className="font-sans text-[1.1rem] text-[#CBD5E1] max-w-[480px] leading-relaxed">
-          Every day you wait is another day your competitor pulls ahead on Google. Start free in 5 minutes — no credit card, no lock-in.
+          Every day you wait is another day your competitor pulls ahead on Google. Start free in 5 minutes (no credit card, no lock-in).
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+        <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 w-full sm:w-auto px-4 sm:px-0">
           <a
             href={REGISTER_URL}
-            className="inline-flex items-center justify-center font-sans font-semibold text-[1.05rem] text-white bg-[#3DAA72] px-[40px] py-[17px] rounded-full transform hover:scale-[1.01] transition-transform shadow-[0_4px_15px_rgba(61,170,114,0.3)] hover:bg-[#2D8A5A]"
+            className="flex w-full sm:w-auto items-center justify-center font-sans font-semibold text-[0.95rem] sm:text-[1.05rem] text-white bg-[#3DAA72] px-6 py-4 sm:px-[40px] sm:py-[17px] rounded-full transform hover:scale-[1.01] transition-transform shadow-[0_4px_15px_rgba(61,170,114,0.3)] hover:bg-[#2D8A5A]"
           >
-            Start Free Today — No Credit Card →
+            Start Free Today (No Credit Card) →
           </a>
           <a
             href="#pricing"
-            className="inline-flex items-center justify-center font-sans font-semibold text-[1rem] text-[#F1F5F9] bg-transparent border border-[#3D4F72] px-[32px] py-[17px] rounded-full hover:border-[#CBD5E1] hover:bg-[#253559] transition-all duration-300"
+            className="flex w-full sm:w-auto items-center justify-center font-sans font-semibold text-[0.95rem] sm:text-[1rem] text-[#F1F5F9] bg-transparent border border-[#3D4F72] px-6 py-4 sm:px-[32px] sm:py-[17px] rounded-full hover:border-[#CBD5E1] hover:bg-[#253559] transition-all duration-300"
           >
             See Pricing Plans
           </a>
