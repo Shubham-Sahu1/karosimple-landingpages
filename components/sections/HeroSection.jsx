@@ -193,7 +193,7 @@ export function HeroSection() {
           <p className="font-sans text-[1.12rem] text-[#CBD5E1] max-w-[580px] leading-relaxed mb-10">
             Customers scan a QR code and leave a real review in seconds.{" "}
             <span className="text-[#FFFFFF] font-bold">
-              Unhappy ones get routed to private feedback — before they go public.
+              Unhappy ones get routed to private feedback, before they go public.
             </span>
           </p>
 
@@ -212,7 +212,7 @@ export function HeroSection() {
               onClick={() => setVideoOpen(true)}
               className="inline-flex items-center justify-center font-sans font-semibold text-[1rem] text-[#FFFFFF] bg-transparent border border-[#3D4F72] px-[28px] py-[15px] rounded-full hover:border-[#CBD5E1] hover:bg-[#253559] transition-all duration-300 cursor-pointer"
             >
-              ▶ Watch 60-Second Demo
+              ▶ Watch Demo Video
             </button>
           </div>
 
@@ -242,8 +242,8 @@ export function HeroSection() {
       <VideoModal
         open={videoOpen}
         onOpenChange={setVideoOpen}
-        videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        title="Karo Simple — How It Works in 60 Seconds"
+        videoUrl="https://www.youtube.com/embed/DenulBBZ56I"
+        title="Karo Simple: How It Works in 60 Seconds"
       />
     </>
   );

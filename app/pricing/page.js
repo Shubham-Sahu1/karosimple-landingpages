@@ -38,8 +38,8 @@ function PricingCard({ plan, billing }) {
     >
       {/* Most Popular badge */}
       {plan.isPopular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-          <span className="bg-[#3DAA72] text-white text-xs font-bold uppercase tracking-wide px-4 py-1.5 rounded-full shadow">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+          <span className="bg-[#3DAA72] text-white text-[0.75rem] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow whitespace-nowrap">
             ⭐ Most Popular
           </span>
         </div>
@@ -47,8 +47,8 @@ function PricingCard({ plan, billing }) {
 
       {/* Let's Talk badge for Custom */}
       {plan.isCustom && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-          <span className="bg-[#3DAA72] text-white text-xs font-bold uppercase tracking-wide px-4 py-1.5 rounded-full shadow">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+          <span className="bg-[#3DAA72] text-white text-[0.75rem] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow whitespace-nowrap">
             Let's Talk
           </span>
         </div>
@@ -206,12 +206,12 @@ export default function PricingPage() {
 
           {/* 3-option billing toggle */}
           <div className="flex justify-center">
-            <div className="inline-flex bg-[#253559] border border-[#3D4F72] p-1.5 rounded-full items-center gap-1">
+            <div className="flex flex-wrap justify-center bg-[#253559] border border-[#3D4F72] p-2 rounded-[20px] sm:rounded-full items-center gap-1 max-w-full mx-auto">
               {BILLING_OPTIONS.map((opt) => (
                 <button
                   key={opt.key}
                   onClick={() => setBilling(opt.key)}
-                  className={`px-5 py-2.5 rounded-full font-bold text-xs transition-all duration-200 cursor-pointer outline-none flex items-center gap-2
+                  className={`px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-full font-bold text-[11px] sm:text-xs transition-all duration-200 cursor-pointer outline-none flex items-center gap-1.5
                     ${billing === opt.key
                       ? "bg-[#3DAA72] text-white"
                       : "text-[#CBD5E1] hover:text-white bg-transparent"
@@ -219,7 +219,7 @@ export default function PricingPage() {
                 >
                   {opt.label}
                   {opt.badge && (
-                    <span className={`text-[0.68rem] font-bold px-1.5 py-0.5 rounded-full
+                    <span className={`text-[0.6rem] sm:text-[0.68rem] font-bold px-1.5 py-0.5 rounded-full
                       ${billing === opt.key ? "bg-white/20 text-white" : "bg-white/10 text-[#CBD5E1]"}`}>
                       {opt.badge}
                     </span>
@@ -329,7 +329,7 @@ export default function PricingPage() {
             Still unsure? Start free and see it working in your business today.
           </h2>
           <p className="text-[1.125rem] text-white/70 max-w-[480px] mx-auto mb-8">
-            No credit card. No commitment. If it works — and it will — upgrading takes 30 seconds.
+            No credit card. No commitment. If it works (and it will), upgrading takes 30 seconds.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a

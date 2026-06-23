@@ -49,7 +49,7 @@ export function MarketingNav() {
         className={`fixed top-0 left-0 w-full z-[999] transition-all duration-300 flex items-center border-b border-[#253559] ${
           isScrolled
             ? "h-[60px] bg-[rgba(27,42,74,0.95)] backdrop-blur-[30px] shadow-nav"
-            : "h-[68px] bg-[rgba(27,42,74,0.85)] backdrop-blur-[20px]"
+            : "h-[60px] lg:h-[68px] bg-[rgba(27,42,74,0.85)] backdrop-blur-[20px]"
         }`}
       >
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16 flex items-center justify-between">

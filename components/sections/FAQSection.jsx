@@ -8,7 +8,7 @@ export function FAQSection() {
   const faqs = [
     {
       question: "Will my customers actually scan the QR code?",
-      answer: "Absolutely — QR code usage in India has exploded since UPI payments made scanning second nature. If your customers can pay via PhonePe or Paytm QR, they'll scan your review QR without a second thought. Most businesses see 60–80% of engaged customers scan within the first week."
+      answer: "Absolutely. QR code usage in India has exploded since UPI payments made scanning second nature. If your customers can pay via PhonePe or Paytm QR, they'll scan your review QR without a second thought. Most businesses see 60–80% of engaged customers scan within the first week."
     },
     {
       question: "What happens if a customer is unhappy?",
@@ -20,11 +20,11 @@ export function FAQSection() {
     },
     {
       question: "How long does setup take?",
-      answer: "Under 5 minutes from signup to having your QR code ready to print. You don't need a developer, technical knowledge, or even a laptop — our mobile-friendly dashboard handles everything. Most business owners set it up themselves during their lunch break."
+      answer: "Under 5 minutes from signup to having your QR code ready to print. You don't need a developer, technical knowledge, or even a laptop: our mobile-friendly dashboard handles everything. Most business owners set it up themselves during their lunch break."
     },
     {
       question: "Can I manage multiple branches or locations?",
-      answer: "Yes — the PRO plan supports up to 3 locations, and our Agency plan is purpose-built for businesses with many branches or agencies managing multiple clients. Each location gets its own QR code, dashboard, and review tracking."
+      answer: "Yes, the PRO plan supports up to 3 locations, and our Agency plan is purpose-built for businesses with many branches or agencies managing multiple clients. Each location gets its own QR code, dashboard, and review tracking."
     },
     {
       question: "What if I don't have any reviews yet?",

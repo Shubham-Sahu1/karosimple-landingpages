@@ -12,7 +12,7 @@ export function IndustriesSection() {
     {
       icon: "💇",
       name: "Salons & Spas",
-      tagline: "Happy customers walk out glowing — remind them to say it online",
+      tagline: "Happy customers walk out glowing: remind them to say it online",
     },
     {
       icon: "🩺",

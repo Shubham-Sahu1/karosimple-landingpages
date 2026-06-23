@@ -14,7 +14,7 @@ export function HowItWorksSection() {
       number: "02",
       icon: "📱",
       title: "Get Your Smart QR Code & Display It",
-      body: "Download your unique QR code and place it wherever your customers are — table tent, counter card, receipt, or your WhatsApp business message. Print it, display it digitally, done.",
+      body: "Download your unique QR code and place it wherever your customers are: table tent, counter card, receipt, or your WhatsApp business message. Print it, display it digitally, done.",
     },
     {
       number: "03",

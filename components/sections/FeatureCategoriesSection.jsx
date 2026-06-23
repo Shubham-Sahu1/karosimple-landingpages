@@ -73,7 +73,7 @@ export function FeatureCategoriesSection() {
             Six things Karo Simple does for your business
           </h2>
           <p className="text-[1.05rem] text-[#CBD5E1] max-w-[560px] mx-auto leading-relaxed">
-            Every feature is built around one goal — making sure your real customers become your visible reputation online.
+            Every feature is built around one goal: making sure your real customers become your visible reputation online.
           </p>
         </div>
 

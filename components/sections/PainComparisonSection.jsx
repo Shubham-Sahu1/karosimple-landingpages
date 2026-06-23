@@ -16,6 +16,9 @@ export function PainComparisonSection() {
   const vsRef = useRef(null);
 
   useGSAP(() => {
+    const isDesktop = window.innerWidth >= 1024;
+    if (!isDesktop) return;
+
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
@@ -79,7 +82,7 @@ export function PainComparisonSection() {
             THE GOOGLE REALITY
           </span>
           <h2 className="font-sans font-bold text-[2rem] md:text-[3rem] leading-tight text-white max-w-3xl mx-auto">
-            Your customers are choosing between you and your competitor — right now.
+            Your customers are choosing between you and your competitor, right now.
           </h2>
           <p className="font-sans text-[1.1rem] text-[#CBD5E1] max-w-[620px] mx-auto leading-relaxed">
             Every day someone searches for what you offer in your local area. This is exactly what they see.
@@ -119,7 +122,7 @@ export function PainComparisonSection() {
 
             <div className="text-[0.85rem] text-[#CBD5E1] border-t border-[#3D4F72] pt-4 leading-relaxed">
               <span className="font-bold text-[#6B7A99]">Other reviews: </span>
-              "Nice", "Good", "ok service" — vague, low-quality phrases that Google's algorithm filters out.
+              "Nice", "Good", "ok service": vague, low-quality phrases that Google's algorithm filters out.
             </div>
 
             {/* Footer warning */}
@@ -186,7 +189,7 @@ export function PainComparisonSection() {
             Which business are your customers choosing?
           </h3>
           <p className="font-sans text-[1rem] text-[#CBD5E1] max-w-lg mx-auto">
-            The answer is obvious. The question is — which one represents your business?
+            The answer is obvious. The question is: which one represents your business?
           </p>
         </div>
       </div>
