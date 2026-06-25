@@ -18,6 +18,7 @@ export function FeatureCategoriesSection() {
       if (!sectionRef.current) return;
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+      // Eyebrow and header fade-in
       gsap.fromTo(
         ".fcat-heading",
         { opacity: 0, y: 24 },
@@ -35,23 +36,52 @@ export function FeatureCategoriesSection() {
         }
       );
 
-      gsap.fromTo(
-        ".fcat-card",
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".fcat-grid",
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-          ...(prefersReducedMotion ? { duration: 0, stagger: 0 } : {}),
+      // Alternating scroll entry/exit animations for card columns
+      const cards = gsap.utils.toArray(".fcat-card");
+      cards.forEach((card) => {
+        const leftEl = card.querySelector(".fcat-left");
+        const rightEl = card.querySelector(".fcat-right");
+
+        if (leftEl) {
+          gsap.fromTo(
+            leftEl,
+            { opacity: 0, x: -80 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.8,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play reverse play reverse",
+              },
+              ...(prefersReducedMotion ? { duration: 0, x: 0 } : {}),
+            }
+          );
         }
-      );
+
+        if (rightEl) {
+          gsap.fromTo(
+            rightEl,
+            { opacity: 0, x: 80 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.8,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play reverse play reverse",
+              },
+              ...(prefersReducedMotion ? { duration: 0, x: 0 } : {}),
+            }
+          );
+        }
+      });
     },
     { scope: sectionRef }
   );
@@ -65,7 +95,7 @@ export function FeatureCategoriesSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
 
         {/* Heading */}
-        <div className="fcat-heading text-center mb-14">
+        <div className="fcat-heading text-center mb-16">
           <span className="inline-block text-[0.72rem] font-semibold text-[#3DAA72] uppercase tracking-[2px] mb-3">
             What Karo Simple Does
           </span>
@@ -77,51 +107,92 @@ export function FeatureCategoriesSection() {
           </p>
         </div>
 
-        {/* 2-col grid */}
-        <div className="fcat-grid grid grid-cols-1 md:grid-cols-2 gap-6">
-          {featureCategories.map((cat) => (
-            <div key={cat.id} className="fcat-card group relative bg-[#253559] border border-[#3D4F72] rounded-2xl p-8
-                                          hover:border-[#3DAA72]/50 hover:shadow-[0_4px_24px_rgba(61,170,114,0.1)] hover:scale-[1.02]
-                                          transition-all duration-200 ease-in-out overflow-hidden">
+        {/* Stack of Alternating Feature Sections */}
+        <div className="fcat-grid space-y-12">
+          {featureCategories.map((cat, index) => {
+            const isImageLeft = index % 2 === 1; // Alternate layout pattern
 
-              {/* Coming Soon overlay */}
-              {cat.isComingSoon && (
-                <div className="absolute inset-0 bg-[#253559]/90 backdrop-blur-[2px] rounded-2xl z-10 flex flex-col items-center justify-center">
-                  <span className="inline-flex items-center gap-2 bg-[#1B2A4A] text-white text-sm font-semibold px-4 py-2 rounded-full border border-[#3D4F72]">
-                    <span>🚀</span> Coming Soon
-                  </span>
-                  <p className="mt-3 text-[#CBD5E1] text-sm">This feature is in active development.</p>
+            return (
+              <div
+                key={cat.id}
+                className="fcat-card group bg-[#253559]/40 backdrop-blur-sm border border-[#3D4F72] rounded-[2.5rem] p-8 lg:p-14
+                           hover:border-[#3DAA72]/30 hover:shadow-[0_4px_24px_rgba(61,170,114,0.05)]
+                           transition-all duration-300 ease-in-out overflow-hidden"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+                  
+                  {/* Left Column */}
+                  <div className={`fcat-left lg:col-span-6 space-y-6 ${isImageLeft ? "order-2 lg:order-1" : "order-1"}`}>
+                    {isImageLeft ? (
+                      /* Image is on the left */
+                      <div className="relative w-full aspect-[4/3] sm:aspect-[1.5] rounded-3xl overflow-hidden border border-[#3D4F72]/50 shadow-2xl bg-[#1B2A4A]/50">
+                        <img
+                          src={cat.image}
+                          alt={cat.name}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        />
+                      </div>
+                    ) : (
+                      /* Content is on the left */
+                      <div className="space-y-5">
+                        <h3 className="text-[1.375rem] font-semibold text-white mb-2 leading-snug">
+                          {cat.name}
+                        </h3>
+                        <p className="text-[1rem] text-[#94A3B8] leading-relaxed mb-5">
+                          {cat.description}
+                        </p>
+                        {cat.features.length > 0 && (
+                          <ul className="space-y-2.5">
+                            {cat.features.map((feat, i) => (
+                              <li key={i} className="flex items-start gap-2.5">
+                                <span className="mt-0.5 text-[#3DAA72] font-bold text-base leading-none flex-shrink-0">✓</span>
+                                <span className="text-[0.9375rem] text-[#CBD5E1] leading-snug">{feat}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Right Column */}
+                  <div className={`fcat-right lg:col-span-6 space-y-6 ${isImageLeft ? "order-1 lg:order-2" : "order-2"}`}>
+                    {isImageLeft ? (
+                      /* Content is on the right */
+                      <div className="space-y-5">
+                        <h3 className="text-[1.375rem] font-semibold text-white mb-2 leading-snug">
+                          {cat.name}
+                        </h3>
+                        <p className="text-[1rem] text-[#94A3B8] leading-relaxed mb-5">
+                          {cat.description}
+                        </p>
+                        {cat.features.length > 0 && (
+                          <ul className="space-y-2.5">
+                            {cat.features.map((feat, i) => (
+                              <li key={i} className="flex items-start gap-2.5">
+                                <span className="mt-0.5 text-[#3DAA72] font-bold text-base leading-none flex-shrink-0">✓</span>
+                                <span className="text-[0.9375rem] text-[#CBD5E1] leading-snug">{feat}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ) : (
+                      /* Image is on the right */
+                      <div className="relative w-full aspect-[4/3] sm:aspect-[1.5] rounded-3xl overflow-hidden border border-[#3D4F72]/50 shadow-2xl bg-[#1B2A4A]/50">
+                        <img
+                          src={cat.image}
+                          alt={cat.name}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        />
+                      </div>
+                    )}
+                  </div>
+
                 </div>
-              )}
-
-              {/* Icon */}
-              <div className="w-12 h-12 flex items-center justify-center bg-[rgba(61,170,114,0.12)] text-[#3DAA72] group-hover:bg-[rgba(61,170,114,0.2)] rounded-xl text-2xl mb-5 transition-colors duration-200">
-                {cat.icon}
               </div>
-
-              {/* Name */}
-              <h3 className="text-[1.375rem] font-semibold text-white mb-2 leading-snug">
-                {cat.name}
-              </h3>
-
-              {/* Description */}
-              <p className="text-[1rem] text-[#94A3B8] leading-relaxed mb-5">
-                {cat.description}
-              </p>
-
-              {/* Feature list */}
-              {!cat.isComingSoon && cat.features.length > 0 && (
-                <ul className="space-y-2.5">
-                  {cat.features.map((feat, i) => (
-                    <li key={i} className="flex items-start gap-2.5">
-                      <span className="mt-0.5 text-[#3DAA72] font-bold text-base leading-none flex-shrink-0">✓</span>
-                      <span className="text-[0.9375rem] text-[#CBD5E1] leading-snug">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
