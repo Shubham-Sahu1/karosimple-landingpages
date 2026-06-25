@@ -47,12 +47,12 @@ export default function ContactPage() {
       tempErrors.message = "Message must be at least 20 characters";
     }
 
-    if (formData.phone.trim()) {
+    if (!formData.phone.trim()) {
+      tempErrors.phone = "Phone number is required";
+    } else {
       const digitsOnly = formData.phone.replace(/[^\d]/g, "");
-      const targetDigits = digitsOnly.slice(-10);
-      const isValidPhone = targetDigits.length === 10 && /^[6-9]/.test(targetDigits);
-      if (!isValidPhone) {
-        tempErrors.phone = "Please enter a valid 10-digit Indian phone number";
+      if (digitsOnly.length !== 10) {
+        tempErrors.phone = "Please enter a valid 10-digit phone number";
       }
     }
 
@@ -115,7 +115,7 @@ export default function ContactPage() {
         <section className="pt-32 pb-16 text-center">
           <div className="max-w-3xl mx-auto px-4 md:px-8 lg:px-16 space-y-6">
             {/* Eyebrow */}
-            <span className="inline-flex bg-[rgba(61,170,114,0.15)] border border-[#3DAA72]/30 text-[#3DAA72] text-[0.75rem] font-semibold uppercase tracking-[1.5px] px-4 py-1.5 rounded-full">
+            <span className="inline-block bg-[rgba(61,170,114,0.15)] border border-[#3DAA72]/30 text-[#3DAA72] text-[0.75rem] font-semibold uppercase tracking-[1.5px] px-4 py-1.5 rounded-full">
               We are here when you need us
             </span>
 
@@ -131,13 +131,12 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ── SECTION 2: CONTACT CARDS AND FORM ── */}
+        {/* ── SECTION 2: CONTACT GRID ── */}
         <section className="py-24 bg-[#1B2A4A] border-t border-[#3D4F72]/30">
-          <div className="max-w-5xl mx-auto px-4 md:px-8">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
             
-            {/* Cards Row (2 columns) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              
+            {/* Sales & Support Email Cards Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {/* Card 1 — Sales */}
               <div className="bg-[#253559] border border-[#3D4F72] rounded-2xl p-7 flex flex-col justify-between space-y-6">
                 <div>
@@ -209,218 +208,317 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-
             </div>
 
-            {/* Contact Form Container */}
-            <div className="mt-12 bg-[#253559] border border-[#3D4F72] rounded-2xl p-6 md:p-10 text-left max-w-4xl mx-auto">
-              <h3 className="text-[1.5rem] font-bold text-white">Send us a message</h3>
-              <p className="text-[0.9375rem] text-[#94A3B8] mt-1 mb-8">
-                Fill this in and we will reply to your email directly.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              
+              {/* Left Column: Contact Form (2/3 width) */}
+              <div className="lg:col-span-8 bg-[#253559]/40 backdrop-blur-sm border border-[#3D4F72]/50 rounded-[2rem] p-6 md:p-10 text-left">
+                <h2 className="text-[1.5rem] font-bold text-white mb-2">Send us a message</h2>
+                <p className="text-[0.9375rem] text-[#94A3B8] mb-8">
+                  Fill this in and we will reply to your email directly.
+                </p>
 
-              {success ? (
-                <div className="bg-[rgba(61,170,114,0.15)] border border-[#3DAA72]/30 rounded-xl p-6 flex flex-col items-center text-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-[#3DAA72] text-white flex items-center justify-center">
-                    <Check size={24} strokeWidth={2.5} />
-                  </div>
-                  <p className="text-white font-bold text-[1.125rem]">Done. We’ve received your message and will reply within 24 hours.</p>
-                  <button
-                    onClick={() => setSuccess(false)}
-                    className="text-[#3DAA72] font-semibold hover:underline mt-2 text-sm"
-                  >
-                    Send another message
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Row 1: Name and Business Name */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div className="flex flex-col">
-                      <label htmlFor="name" className="text-sm font-bold text-[#CBD5E1] mb-2">
-                        Your Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="What should we call you?"
-                        className="bg-[#1B2A4A] border border-[#3D4F72] rounded-xl p-3 h-12 outline-none focus:border-[#3DAA72] focus:ring-2 focus:ring-[#3DAA72]/20 text-sm text-white transition-all placeholder-[#6B7A99]"
-                      />
-                      {errors.name && (
-                        <span className="text-xs text-[#EF4444] mt-1 font-semibold">{errors.name}</span>
-                      )}
+                {success ? (
+                  <div className="bg-[rgba(61,170,114,0.15)] border border-[#3DAA72]/30 rounded-xl p-6 flex flex-col items-center text-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-[#3DAA72] text-white flex items-center justify-center">
+                      <Check size={24} strokeWidth={2.5} />
                     </div>
-
-                    <div className="flex flex-col">
-                      <label htmlFor="businessName" className="text-sm font-bold text-[#CBD5E1] mb-2">
-                        Business Name
-                      </label>
-                      <input
-                        type="text"
-                        id="businessName"
-                        value={formData.businessName}
-                        onChange={handleChange}
-                        placeholder="Name of your shop, clinic, restaurant, etc."
-                        className="bg-[#1B2A4A] border border-[#3D4F72] rounded-xl p-3 h-12 outline-none focus:border-[#3DAA72] focus:ring-2 focus:ring-[#3DAA72]/20 text-sm text-white transition-all placeholder-[#6B7A99]"
-                      />
-                      {errors.businessName && (
-                        <span className="text-xs text-[#EF4444] mt-1 font-semibold">{errors.businessName}</span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Row 2: Email and Phone */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div className="flex flex-col">
-                      <label htmlFor="email" className="text-sm font-bold text-[#CBD5E1] mb-2">
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="We will reply here"
-                        className="bg-[#1B2A4A] border border-[#3D4F72] rounded-xl p-3 h-12 outline-none focus:border-[#3DAA72] focus:ring-2 focus:ring-[#3DAA72]/20 text-sm text-white transition-all placeholder-[#6B7A99]"
-                      />
-                      {errors.email && (
-                        <span className="text-xs text-[#EF4444] mt-1 font-semibold">{errors.email}</span>
-                      )}
-                    </div>
-
-                    <div className="flex flex-col">
-                      <label htmlFor="phone" className="text-sm font-bold text-[#CBD5E1] mb-2">
-                        Phone (optional)
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="Only if you want a call back"
-                        className="bg-[#1B2A4A] border border-[#3D4F72] rounded-xl p-3 h-12 outline-none focus:border-[#3DAA72] focus:ring-2 focus:ring-[#3DAA72]/20 text-sm text-white transition-all placeholder-[#6B7A99]"
-                      />
-                      {errors.phone && (
-                        <span className="text-xs text-[#EF4444] mt-1 font-semibold">{errors.phone}</span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Row 3: Dropdown */}
-                  <div className="flex flex-col">
-                    <label htmlFor="subject" className="text-sm font-bold text-[#CBD5E1] mb-2">
-                      Subject
-                    </label>
-                    <div className="relative">
-                      <select
-                        id="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        className="w-full bg-[#1B2A4A] border border-[#3D4F72] rounded-xl px-4 h-12 outline-none focus:border-[#3DAA72] focus:ring-2 focus:ring-[#3DAA72]/20 text-sm text-white cursor-pointer appearance-none transition-all"
-                      >
-                        <option value="I have a question before signing up">I have a question before signing up</option>
-                        <option value="I want to understand the pricing">I want to understand the pricing</option>
-                        <option value="I am already a customer and need help">I am already a customer and need help</option>
-                        <option value="I want to talk about the Agency plan">I want to talk about the Agency plan</option>
-                        <option value="Something else">Something else</option>
-                      </select>
-                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#94A3B8]">
-                        <ChevronDown size={18} />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Row 4: Textarea */}
-                  <div className="flex flex-col">
-                    <label htmlFor="message" className="text-sm font-bold text-[#CBD5E1] mb-2">
-                      Your Message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us what’s on your mind. The more detail the better."
-                      className="bg-[#1B2A4A] border border-[#3D4F72] rounded-xl p-4 outline-none focus:border-[#3DAA72] focus:ring-2 focus:ring-[#3DAA72]/20 text-sm text-white transition-all resize-none placeholder-[#6B7A99]"
-                    />
-                    {errors.message && (
-                      <span className="text-xs text-[#EF4444] mt-1 font-semibold">{errors.message}</span>
-                    )}
-                  </div>
-
-                  {errors.submit && (
-                    <div className="text-xs text-[#EF4444] font-semibold">{errors.submit}</div>
-                  )}
-
-                  {/* Submit Button */}
-                  <div>
+                    <p className="text-white font-bold text-[1.125rem]">Done. We’ve received your message and will reply within 24 hours.</p>
                     <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full text-center font-semibold text-[0.95rem] py-3.5 rounded-full bg-[#3DAA72] text-white hover:bg-[#2D8A5A] shadow-[0_4px_12px_rgba(61,170,114,0.3)] transition-all duration-300 disabled:opacity-50"
+                      onClick={() => setSuccess(false)}
+                      className="text-[#3DAA72] font-semibold hover:underline mt-2 text-sm"
                     >
-                      {isSubmitting ? "Sending..." : "Send Message →"}
+                      Send another message
                     </button>
                   </div>
-                </form>
-              )}
-            </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Row 1: Name and Email */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div className="flex flex-col">
+                        <label htmlFor="name" className="text-sm font-bold text-[#CBD5E1] mb-2">
+                          Your Name
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Rahul Sharma"
+                          className="bg-[#1B2A4A] border border-[#3D4F72] rounded-xl p-3 h-12 outline-none focus:border-[#3DAA72] focus:ring-2 focus:ring-[#3DAA72]/20 text-sm text-white transition-all placeholder-[#6B7A99]"
+                        />
+                        {errors.name && (
+                          <span className="text-xs text-[#EF4444] mt-1 font-semibold">{errors.name}</span>
+                        )}
+                      </div>
 
-          </div>
-        </section>
+                      <div className="flex flex-col">
+                        <label htmlFor="email" className="text-sm font-bold text-[#CBD5E1] mb-2">
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="rahul@business.in"
+                          className="bg-[#1B2A4A] border border-[#3D4F72] rounded-xl p-3 h-12 outline-none focus:border-[#3DAA72] focus:ring-2 focus:ring-[#3DAA72]/20 text-sm text-white transition-all placeholder-[#6B7A99]"
+                        />
+                        {errors.email && (
+                          <span className="text-xs text-[#EF4444] mt-1 font-semibold">{errors.email}</span>
+                        )}
+                      </div>
+                    </div>
 
-        {/* ── SECTION 3: RESPONSE PROMISE STRIP ── */}
-        <section className="bg-[rgba(61,170,114,0.12)] border-y border-[#3DAA72]/25 py-6 text-center">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 flex items-center justify-center gap-2.5 text-[#CBD5E1] font-medium text-[0.95rem] md:text-[1rem]">
-            <span className="text-[#3DAA72] text-xl">🕒</span>
-            <span>We reply to every message within 24 hours, Monday to Saturday. Urgent issues on PRO and AGENCY plans get priority response via WhatsApp.</span>
-          </div>
-        </section>
+                    {/* Row 2: Business Name and Phone */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div className="flex flex-col">
+                        <label htmlFor="businessName" className="text-sm font-bold text-[#CBD5E1] mb-2">
+                          Business Name
+                        </label>
+                        <input
+                          type="text"
+                          id="businessName"
+                          value={formData.businessName}
+                          onChange={handleChange}
+                          placeholder="Name of your shop, clinic, restaurant, etc."
+                          className="bg-[#1B2A4A] border border-[#3D4F72] rounded-xl p-3 h-12 outline-none focus:border-[#3DAA72] focus:ring-2 focus:ring-[#3DAA72]/20 text-sm text-white transition-all placeholder-[#6B7A99]"
+                        />
+                        {errors.businessName && (
+                          <span className="text-xs text-[#EF4444] mt-1 font-semibold">{errors.businessName}</span>
+                        )}
+                      </div>
 
-        {/* ── SECTION 4: WHATSAPP CTA BLOCK ── */}
-        <section className="py-24 bg-[#1B2A4A] border-t border-[#3D4F72]/30">
-          <div className="max-w-2xl mx-auto px-4 text-center">
-            <div className="bg-[#253559] border border-[#3D4F72] rounded-[24px] p-8 md:p-12 space-y-6 shadow-sm">
-              {/* WhatsApp Icon */}
-              <div className="flex justify-center">
-                <svg
-                  className="w-12 h-12 fill-[#25D366]"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.714-1.466L0 24zm6.59-4.846c1.6.95 3.498 1.45 5.419 1.451 5.617 0 10.185-4.57 10.188-10.191.002-2.723-1.055-5.283-2.977-7.207-1.922-1.924-4.481-2.982-7.202-2.984-5.624 0-10.191 4.568-10.194 10.189-.001 1.92.502 3.796 1.458 5.419l-.988 3.606 3.696-.97zm10.163-5.185c-.277-.139-1.643-.811-1.896-.903-.254-.093-.44-.139-.623.139-.184.278-.714.903-.875 1.088-.162.185-.323.208-.6.069-.278-.139-1.173-.432-2.234-1.378-.825-.736-1.382-1.644-1.544-1.922-.162-.278-.017-.428.122-.566.125-.124.277-.323.416-.485.139-.161.185-.278.277-.463.093-.185.046-.347-.023-.486-.069-.139-.623-1.503-.854-2.057-.225-.54-.473-.466-.647-.475-.167-.008-.358-.01-.549-.01-.191 0-.502.072-.765.358-.263.287-1.004.982-1.004 2.396 0 1.414 1.029 2.78 1.173 2.977.144.195 2.025 3.092 4.905 4.335.685.297 1.22.474 1.636.607.688.219 1.314.188 1.81.114.551-.082 1.643-.671 1.875-1.32.232-.648.232-1.204.162-1.32-.07-.116-.254-.208-.531-.347z" />
-                </svg>
+                      <div className="flex flex-col">
+                        <label htmlFor="phone" className="text-sm font-bold text-[#CBD5E1] mb-2">
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          placeholder="10-digit mobile number"
+                          className="bg-[#1B2A4A] border border-[#3D4F72] rounded-xl p-3 h-12 outline-none focus:border-[#3DAA72] focus:ring-2 focus:ring-[#3DAA72]/20 text-sm text-white transition-all placeholder-[#6B7A99]"
+                        />
+                        {errors.phone && (
+                          <span className="text-xs text-[#EF4444] mt-1 font-semibold">{errors.phone}</span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Subject Dropdown */}
+                    <div className="flex flex-col">
+                      <label htmlFor="subject" className="text-sm font-bold text-[#CBD5E1] mb-2">
+                        Subject
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                          className="w-full bg-[#1B2A4A] border border-[#3D4F72] rounded-xl px-4 h-12 outline-none focus:border-[#3DAA72] focus:ring-2 focus:ring-[#3DAA72]/20 text-sm text-white cursor-pointer appearance-none transition-all"
+                        >
+                          <option value="I have a question before signing up">I have a question before signing up</option>
+                          <option value="I want to understand the pricing">I want to understand the pricing</option>
+                          <option value="I am already a customer and need help">I am already a customer and need help</option>
+                          <option value="I want to talk about the Agency plan">I want to talk about the Agency plan</option>
+                          <option value="Something else">Something else</option>
+                        </select>
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#94A3B8]">
+                          <ChevronDown size={18} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Message Textarea */}
+                    <div className="flex flex-col">
+                      <label htmlFor="message" className="text-sm font-bold text-[#CBD5E1] mb-2">
+                        Your Message
+                      </label>
+                      <textarea
+                        id="message"
+                        rows={6}
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Tell us about your business needs..."
+                        className="bg-[#1B2A4A] border border-[#3D4F72] rounded-xl p-4 outline-none focus:border-[#3DAA72] focus:ring-2 focus:ring-[#3DAA72]/20 text-sm text-white transition-all resize-none placeholder-[#6B7A99]"
+                      />
+                      {errors.message && (
+                        <span className="text-xs text-[#EF4444] mt-1 font-semibold">{errors.message}</span>
+                      )}
+                    </div>
+
+                    {errors.submit && (
+                      <div className="text-xs text-[#EF4444] font-semibold">{errors.submit}</div>
+                    )}
+
+                    {/* Submit Button */}
+                    <div>
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full text-center font-semibold text-[0.95rem] py-3.5 rounded-full bg-[#3DAA72] text-white hover:bg-[#2D8A5A] shadow-[0_4px_12px_rgba(61,170,114,0.3)] transition-all duration-300 disabled:opacity-50"
+                      >
+                        {isSubmitting ? "Sending..." : "Send Message →"}
+                      </button>
+                    </div>
+                  </form>
+                )}
               </div>
 
-              <div className="space-y-2">
-                <h3 className="text-[1.375rem] font-bold text-white">
-                  On PRO or AGENCY? Talk to us directly on WhatsApp.
-                </h3>
-                <p className="text-[0.9375rem] text-[#94A3B8] max-w-[400px] mx-auto leading-relaxed">
-                  Skip the form. If you are on a paid plan and need quick help, message us directly and we will respond fast.
-                </p>
-              </div>
-
-              <div className="pt-2">
+              {/* Right Column: Info Cards (1/3 width) */}
+              <div className="lg:col-span-4 space-y-6">
+                
+                {/* WhatsApp Box - Whole card is a link */}
                 <a
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-semibold text-[0.95rem] bg-[#25D366] hover:bg-[#1ebe5d] text-white px-8 py-3.5 rounded-full transition-colors duration-200"
+                  className="block bg-[#25D366] hover:bg-[#1ebe5d] transition-all duration-300 rounded-[2rem] p-8 text-left text-white shadow-lg cursor-pointer relative group overflow-hidden"
                 >
-                  {/* Small WhatsApp logo */}
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.714-1.466L0 24zm6.59-4.846c1.6.95 3.498 1.45 5.419 1.451 5.617 0 10.185-4.57 10.188-10.191.002-2.723-1.055-5.283-2.977-7.207-1.922-1.924-4.481-2.982-7.202-2.984-5.624 0-10.191 4.568-10.194 10.189-.001 1.92.502 3.796 1.458 5.419l-.988 3.606 3.696-.97zm10.163-5.185c-.277-.139-1.643-.811-1.896-.903-.254-.093-.44-.139-.623.139-.184.278-.714.903-.875 1.088-.162.185-.323.208-.6.069-.278-.139-1.173-.432-2.234-1.378-.825-.736-1.382-1.644-1.544-1.922-.162-.278-.017-.428.122-.566.125-.124.277-.323.416-.485.139-.161.185-.278.277-.463.093-.185.046-.347-.023-.486-.069-.139-.623-1.503-.854-2.057-.225-.54-.473-.466-.647-.475-.167-.008-.358-.01-.549-.01-.191 0-.502.072-.765.358-.263.287-1.004.982-1.004 2.396 0 1.414 1.029 2.78 1.173 2.977.144.195 2.025 3.092 4.905 4.335.685.297 1.22.474 1.636.607.688.219 1.314.188 1.81.114.551-.082 1.643-.671 1.875-1.32.232-.648.232-1.204.162-1.32-.07-.116-.254-.208-.531-.347z" />
-                  </svg>
-                  <span>Open WhatsApp Chat</span>
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      {/* Fast Response Badge */}
+                      <span className="inline-block bg-white/20 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded">
+                        ⚡ Fast Response
+                      </span>
+                      {/* Circle arrow */}
+                      <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 group-hover:scale-110 group-hover:bg-white/30 transition-all duration-200">
+                        <svg className="w-4 h-4 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24">
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h3 className="text-[1.5rem] font-extrabold leading-tight">
+                        WhatsApp Us Directly
+                      </h3>
+                      <p className="text-white/90 text-sm leading-relaxed">
+                        Skip the queue and chat with our business consultants in real-time.
+                      </p>
+                    </div>
+
+                    <div className="border-t border-white/25 pt-4">
+                      <p className="text-white/80 text-xs italic">
+                        WhatsApp support is only for agency queries
+                      </p>
+                    </div>
+                  </div>
                 </a>
+
+                {/* Headquarters Box */}
+                <div className="bg-[#253559]/40 backdrop-blur-sm border border-[#3D4F72]/50 rounded-[2rem] p-8 text-left space-y-4 shadow-lg">
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-[rgba(61,170,114,0.12)] flex items-center justify-center text-xl shrink-0 text-[#3DAA72]">
+                        📍
+                      </div>
+                      <div>
+                        <span className="text-[0.68rem] font-semibold uppercase tracking-wider text-[#94A3B8]">
+                          Our Headquarters
+                        </span>
+                        <h4 className="text-[1.125rem] font-bold text-white mt-1 leading-snug">
+                          Raipur, Chhattisgarh, 492001
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Connect Us On Box */}
+                <div className="bg-[#253559]/40 backdrop-blur-sm border border-[#3D4F72]/50 rounded-[2rem] p-8 text-left space-y-4 shadow-lg">
+                  <div>
+                    <span className="text-[0.68rem] font-semibold uppercase tracking-wider text-[#94A3B8]">
+                      Connect us on
+                    </span>
+                    <h4 className="text-[1.125rem] font-bold text-white mt-1 leading-snug">
+                      Join Our Community
+                    </h4>
+                  </div>
+
+                  {/* Social Buttons */}
+                  <div className="flex items-center gap-3 pt-2">
+                    <a
+                      href="https://instagram.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/20 hover:bg-[#EF4444]/20 flex items-center justify-center text-[#EF4444] transition-all duration-200"
+                    >
+                      <svg className="w-5 h-5 fill-none stroke-current" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-[#3B5998]/10 border border-[#3B5998]/20 hover:bg-[#3B5998]/20 flex items-center justify-center text-[#3B5998] transition-all duration-200"
+                    >
+                      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z" />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://youtube.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-[#FF0000]/10 border border-[#FF0000]/20 hover:bg-[#FF0000]/20 flex items-center justify-center text-[#FF0000] transition-all duration-200"
+                    >
+                      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.53 3.5 12 3.5 12 3.5s-7.53 0-9.388.555A3.002 3.002 0 0 0 .502 6.163C0 8.07 0 12 0 12s0 3.93.502 5.837a3.002 3.002 0 0 0 2.11 2.108C4.47 20.5 12 20.5 12 20.5s7.53 0 9.388-.555a3.003 3.003 0 0 0 2.11-2.108C24 15.93 24 12 24 12s0-3.93-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://linkedin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-[#0A66C2]/10 border border-[#0A66C2]/20 hover:bg-[#0A66C2]/20 flex items-center justify-center text-[#0A66C2] transition-all duration-200"
+                    >
+                      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://twitter.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-[#38BDF8]/10 border border-[#38BDF8]/20 hover:bg-[#38BDF8]/20 flex items-center justify-center text-[#38BDF8] transition-all duration-200"
+                    >
+                      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
               </div>
 
-              <span className="text-xs text-[#94A3B8] block">
-                WhatsApp support is available on PRO and AGENCY plans
-              </span>
+            </div>
+
+            {/* Bottom: Need Quick Answers Banner */}
+            <div className="mt-16 bg-[#253559]/30 border border-[#3D4F72]/50 rounded-[2rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="text-left space-y-2">
+                <h3 className="text-[1.5rem] font-bold text-white">Need quick answers?</h3>
+                <p className="text-[1rem] text-[#94A3B8]">
+                  Browse our documentation and frequently asked questions.
+                </p>
+              </div>
+              <a
+                href="/faq"
+                className="w-full md:w-auto text-center font-bold text-[0.95rem] px-8 py-4 rounded-xl border border-white/20 hover:bg-white/5 text-white transition-all flex items-center justify-center gap-2 shrink-0"
+              >
+                View FAQ
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
             </div>
           </div>
         </section>

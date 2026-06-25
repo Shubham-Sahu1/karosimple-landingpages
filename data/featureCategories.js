@@ -12,6 +12,7 @@ export const featureCategories = [
       "Dynamic QR: change the destination without reprinting (PRO)",
       "Per-employee QR codes so you know which staff member drove which review",
     ],
+    image: "/features/smart-qr-codes.png",
   },
   {
     id: "cat-2",
@@ -26,6 +27,7 @@ export const featureCategories = [
       "SEO keyword injection so your reviews mention what Google looks for",
       "Duplicate detection so no two customers see the exact same review suggestion",
     ],
+    image: "/features/ai-review-generator.png",
   },
   {
     id: "cat-3",
@@ -39,14 +41,22 @@ export const featureCategories = [
       "Log resolution notes so nothing falls through the cracks",
       "Customer phone numbers are masked for privacy: you see +91 XXXX, not the full number",
     ],
+    image: "/features/reputation-protection.png",
   },
   {
     id: "cat-4",
-    icon: "📅",
-    name: "Review Drip Scheduler",
-    description: "Coming Soon",
-    isComingSoon: true,
-    features: [],
+    icon: "🏢",
+    name: "Agency Portal",
+    description:
+      "Scale your agency and manage all client reputations from a single, white-labeled dashboard built for multi-location brands.",
+    features: [
+      "White-labeled reporting: export brand-matching PDFs for your clients (PRO)",
+      "Multi-client workspace: toggle between accounts with a single click",
+      "Custom agency subdomain and logo integration",
+      "Granular team access controls for managers and clients",
+      "Bulk client invites and automated onboarding flows",
+    ],
+    image: "/features/agency-portal.png",
   },
   {
     id: "cat-5",
@@ -60,6 +70,7 @@ export const featureCategories = [
       "Review length preference report: do your customers prefer short or detailed?",
       "Monthly SEO impact report in PDF: track your Google ranking progress (PRO)",
     ],
+    image: "/features/analytics-insights.png",
   },
   {
     id: "cat-6",
@@ -73,5 +84,6 @@ export const featureCategories = [
       "Gold, silver and bronze trophy badges to gamify performance",
       "Deactivate a staff member without losing their historical data",
     ],
+    image: "/features/staff-tracking.png",
   },
 ];

@@ -40,34 +40,84 @@ export default function FeaturesPage() {
       <MarketingNav />
       <main>
       {/* ── SECTION 1: HERO ── */}
-      <section className="bg-[#1B2A4A] pt-24 pb-20 text-center">
+      <section className="bg-[#1B2A4A] pt-28 pb-24">
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Side: Laptop Image with 25px border and Growth Badge */}
+            <div className="lg:col-span-5 flex justify-center order-2 lg:order-1">
+              <div className="relative w-full max-w-[440px] aspect-[4/3] sm:aspect-[1.4] lg:aspect-auto lg:h-[420px]">
+                {/* Laptop Image with rounded border */}
+                <div className="w-full h-full rounded-[2rem] border-[13px] border-[#253559] overflow-hidden shadow-card bg-[#253559]">
+                  <img
+                    src="/features-hero-laptop.jpg"
+                    alt="One platform to collect, manage and grow your reviews"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-          {/* Eyebrow badge */}
-          <span className="inline-block bg-[rgba(61,170,114,0.15)] text-[#3DAA72] text-[0.75rem] font-semibold uppercase tracking-[1.5px] px-4 py-1.5 rounded-full mb-6">
-            Everything your reputation needs, in one place
-          </span>
+                {/* Overlapping Growth Badge */}
+                <div className="absolute bottom-6 right-[-20px] sm:right-[-24px] sm:bottom-8 bg-[rgba(37,53,89,0.85)] backdrop-blur-md border border-[rgba(255,255,255,0.1)] rounded-2xl p-4 flex items-center gap-3 shadow-2xl select-none z-10">
+                  <div className="w-6 h-6 rounded-full bg-[#3DAA72] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(61,170,114,0.4)] text-white">
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                      <polyline points="17 6 23 6 23 12" />
+                    </svg>
+                  </div>
+                  <div className="text-left">
+                    <div className="text-white font-bold text-sm leading-snug">
+                      Your business is growing
+                    </div>
+                    <div className="text-[#3DAA72] text-[0.75rem] font-bold leading-none mt-0.5">
+                      by 10%
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          {/* H1 */}
-          <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] font-extrabold text-white leading-[1.1] tracking-tight mb-6">
-            One platform to collect, manage
-            <br />
-            <span className="text-[#3DAA72]">and grow your reviews.</span>
-          </h1>
+            {/* Right Side: Copy Content */}
+            <div className="lg:col-span-7 text-center lg:text-left order-1 lg:order-2 space-y-6">
+              {/* Eyebrow badge */}
+              <div>
+                <span className="inline-block bg-[rgba(61,170,114,0.15)] text-[#3DAA72] text-[0.75rem] font-semibold uppercase tracking-[1.5px] px-4 py-1.5 rounded-full">
+                  Everything your reputation needs, in one place
+                </span>
+              </div>
 
-          {/* Subheadline */}
-          <p className="text-[1.125rem] text-white/75 max-w-[600px] mx-auto leading-relaxed mb-10">
-            From the QR code your customer scans to the 5-star review that shows up on Google, Karo Simple handles the whole thing. Here is every feature that makes it work.
-          </p>
+              {/* H1 */}
+              <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[3.25rem] font-extrabold text-white leading-[1.1] tracking-tight">
+                One platform to collect, manage
+                <br />
+                <span className="text-[#3DAA72]">and grow your reviews.</span>
+              </h1>
 
-          {/* CTA */}
-          <a
-            href={REGISTER_URL}
-            className="inline-flex items-center gap-2 bg-[#3DAA72] hover:bg-[#2D8A5A] text-white font-semibold text-[1rem]
-                       px-8 py-4 rounded-full transition-all duration-200 hover:shadow-[0_4px_20px_rgba(61,170,114,0.35)]"
-          >
-            Start Free, No Card Needed →
-          </a>
+              {/* Subheadline */}
+              <p className="text-[1.125rem] text-white/75 leading-relaxed max-w-[600px] mx-auto lg:mx-0">
+                From the QR code your customer scans to the 5-star review that shows up on Google, Karo Simple handles the whole thing. Here is every feature that makes it work.
+              </p>
+
+              {/* CTA */}
+              <div className="pt-2">
+                <a
+                  href={REGISTER_URL}
+                  className="inline-flex items-center gap-2 bg-[#3DAA72] hover:bg-[#2D8A5A] text-white font-semibold text-[1rem]
+                             px-8 py-4 rounded-full transition-all duration-200 hover:shadow-[0_4px_20px_rgba(61,170,114,0.35)]"
+                >
+                  Start Free, No Card Needed →
+                </a>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
