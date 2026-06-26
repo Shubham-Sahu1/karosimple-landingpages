@@ -64,15 +64,25 @@ export function MarketingNav() {
 
           {/* Desktop Nav links */}
           <nav className="hidden lg:flex items-center gap-[32px]">
-            {headerNavLinks.map((link, index) => (
-              <Link
-                key={index}
-                href={link.href}
-                className="font-sans font-medium text-[0.9rem] text-[#CBD5E1] hover:text-[#3DAA72] transition-colors duration-200 outline-none"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {headerNavLinks.map((link, index) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname === link.href || pathname.startsWith(link.href + "/");
+              return (
+                <Link
+                  key={index}
+                  href={link.href}
+                  className={`font-sans font-medium text-[0.9rem] transition-colors duration-200 outline-none ${
+                    isActive
+                      ? "text-[#3DAA72] underline decoration-[#3DAA72] decoration-2 underline-offset-8 font-semibold"
+                      : "text-[#CBD5E1] hover:text-[#3DAA72]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Desktop Call to Action */}
@@ -104,15 +114,25 @@ export function MarketingNav() {
       >
         <div className="h-full flex flex-col justify-between p-6 pb-24 overflow-y-auto">
           <nav className="flex flex-col space-y-6">
-            {headerNavLinks.map((link, index) => (
-              <Link
-                key={index}
-                href={link.href}
-                className="text-lg font-bold text-[#CBD5E1] hover:text-[#3DAA72] py-3 border-b border-[#253559] transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {headerNavLinks.map((link, index) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname === link.href || pathname.startsWith(link.href + "/");
+              return (
+                <Link
+                  key={index}
+                  href={link.href}
+                  className={`text-lg font-bold py-3 border-b border-[#253559] transition-colors ${
+                    isActive
+                      ? "text-[#3DAA72] underline decoration-[#3DAA72] decoration-2 underline-offset-4"
+                      : "text-[#CBD5E1] hover:text-[#3DAA72]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex flex-col space-y-4 pt-8">

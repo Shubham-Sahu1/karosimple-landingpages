@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { REGISTER_URL } from "@/lib/constants";
 
 export function PricingPreviewSection() {
@@ -15,13 +16,6 @@ export function PricingPreviewSection() {
         "half-yearly": 0,
         "annual": 0
       },
-      features: [
-        "1 Business Location",
-        "1 Smart QR Code",
-        "Up to 25 reviews/month",
-        "Google Integration",
-        "Basic Dashboard"
-      ],
       ctaText: "Start Free",
       ctaHref: REGISTER_URL,
       isPopular: false,
@@ -34,14 +28,6 @@ export function PricingPreviewSection() {
         "half-yearly": 424,
         "annual": 374
       },
-      features: [
-        "1 Business Location",
-        "3 Smart QR Codes",
-        "Up to 100 reviews/month",
-        "All Platforms Support",
-        "Private Feedback Filter",
-        "AI Review Suggestions"
-      ],
       ctaText: "Get Started →",
       ctaHref: REGISTER_URL,
       isPopular: false,
@@ -50,19 +36,10 @@ export function PricingPreviewSection() {
       name: "Pro",
       description: "For serious growth",
       price: {
-        "monthly": 999,
-        "half-yearly": 849,
-        "annual": 749
+        "monthly": 1499,
+        "half-yearly": 1274,
+        "annual": 1124
       },
-      features: [
-        "Up to 3 Locations",
-        "Unlimited QR Codes",
-        "Unlimited Reviews",
-        "Advanced Analytics",
-        "Review Response AI",
-        "Priority Support",
-        "WhatsApp Chat Support"
-      ],
       ctaText: "Get Started →",
       ctaHref: REGISTER_URL,
       isPopular: true,
@@ -71,20 +48,12 @@ export function PricingPreviewSection() {
       name: "Agency",
       description: "For agencies & franchise chains",
       price: {
-        "monthly": "Custom",
-        "half-yearly": "Custom",
-        "annual": "Custom"
+        "monthly": 4999,
+        "half-yearly": 4249,
+        "annual": 3749
       },
-      features: [
-        "Unlimited Sub-Businesses",
-        "Shared Resource Pool",
-        "Super-Admin Dashboard",
-        "White-Label Option",
-        "Dedicated Account Manager",
-        "Custom Integrations"
-      ],
-      ctaText: "Talk to Us",
-      ctaHref: "/contact",
+      ctaText: "Get Started →",
+      ctaHref: REGISTER_URL,
       isPopular: false,
     }
   ];
@@ -144,8 +113,7 @@ export function PricingPreviewSection() {
         {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch pt-8">
           {plans.map((plan, i) => {
-            const isCustom = plan.price[cycle] === "Custom";
-            const priceDisplay = isCustom ? "Custom" : `₹${plan.price[cycle]}`;
+            const priceDisplay = `₹${plan.price[cycle].toLocaleString("en-IN")}`;
 
             return (
               <div
@@ -163,7 +131,7 @@ export function PricingPreviewSection() {
                   </div>
                 )}
 
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {/* Header info */}
                   <div className="space-y-2">
                     <span className="text-[0.75rem] font-bold text-[#6B7A99] uppercase tracking-wider">
@@ -173,27 +141,12 @@ export function PricingPreviewSection() {
                       <span className="font-sans font-extrabold text-[2.2rem] leading-none">
                         {priceDisplay}
                       </span>
-                      {!isCustom && (
-                        <span className="text-sm text-[#6B7A99] font-medium font-sans">/mo</span>
-                      )}
+                      <span className="text-sm text-[#6B7A99] font-medium font-sans">/mo</span>
                     </div>
                     <p className="font-sans text-[0.82rem] text-[#CBD5E1]">
                       {plan.description}
                     </p>
                   </div>
-
-                  {/* Divider */}
-                  <div className="border-b border-[#3D4F72]" />
-
-                  {/* Features list */}
-                  <ul className="space-y-3 font-sans text-[0.85rem] text-[#CBD5E1]">
-                    {plan.features.map((feat, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5">
-                        <span className="text-[#3DAA72] font-bold shrink-0">✓</span>
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
 
                 {/* CTA Button */}
@@ -217,6 +170,16 @@ export function PricingPreviewSection() {
               </div>
             );
           })}
+        </div>
+
+        {/* Compare Plans Link Button */}
+        <div className="text-center pt-10">
+          <Link
+            href="/pricing"
+            className="inline-block font-sans font-semibold text-[0.95rem] text-[#3DAA72] hover:text-white bg-transparent hover:bg-[#3DAA72] border border-[#3DAA72] px-8 py-3.5 rounded-full transition-all duration-300 transform hover:-translate-y-[1px] hover:shadow-[0_4px_20px_rgba(61,170,114,0.25)] outline-none"
+          >
+            Compare the plans
+          </Link>
         </div>
       </div>
     </section>
