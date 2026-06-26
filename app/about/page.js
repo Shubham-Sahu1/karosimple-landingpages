@@ -172,7 +172,7 @@ export default function AboutPage() {
               <div className="lg:col-span-7 space-y-6">
                 <div className="space-y-2">
                   <h3 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
-                    Shubham Sahu
+                    Shubham
                   </h3>
                   <p className="text-[#38BDF8] text-[0.875rem] font-bold uppercase tracking-widest">
                     Founder, Software Developer & Digital Marketing Specialist
@@ -424,6 +424,81 @@ export default function AboutPage() {
               </div>
             </div>
 
+          </div>
+        </section>
+
+        {/* ── SECTION 4.5: TEAM MEMBERS ── */}
+        <section className="py-24 bg-[#1B2A4A] border-t border-[#3D4F72]/30">
+          <div className="max-w-6xl mx-auto px-4 md:px-8 lg:px-16">
+            {/* Header */}
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+              <div className="space-y-3 text-left">
+                <h2 className="text-[2.25rem] font-extrabold text-white leading-tight">
+                  Behind the Screen
+                </h2>
+                <p className="text-[1.05rem] text-[#CBD5E1] max-w-xl leading-relaxed">
+                  Our team is a blend of industry veterans and disruptive young talent, all focused on one goal: making business simpler for you.
+                </p>
+              </div>
+              <a
+                href="#"
+                className="text-[#3DAA72] hover:text-[#2D8A5A] font-semibold flex items-center gap-1.5 transition-colors group shrink-0"
+              >
+                View Careers
+                <svg
+                  className="w-4 h-4 transform transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            {/* Grid layout */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
+              {[
+                {
+                  name: "Kunal",
+                  role: "Developer",
+                  bio: "Passionate developer specialized in Next.js and high-performance frontend interfaces.",
+                  image: "/Team Image/Kunal.png"
+                },
+                {
+                  name: "Gulshan",
+                  role: "Developer",
+                  bio: "Passionate developer specialized in Next.js and high-performance frontend interfaces.",
+                  image: "/Team Image/Gulshan.jpeg"
+                }
+              ].map((member, index) => (
+                <div key={index} className="space-y-4 text-left group">
+                  <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-[#3D4F72]/30 shadow-md bg-[#253559] transition-all duration-300 group-hover:border-[#3DAA72]/50 group-hover:shadow-[0_0_20px_rgba(61,170,114,0.15)]">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1B2A4A]/80 via-transparent to-transparent" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-extrabold text-[1.15rem] tracking-tight">
+                      {member.name}
+                    </h3>
+                    <p className="text-[#3DAA72] text-[0.82rem] font-bold uppercase tracking-wider mt-0.5">
+                      {member.role}
+                    </p>
+                    <p className="text-[#CBD5E1] text-[0.875rem] leading-relaxed mt-2">
+                      {member.bio}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

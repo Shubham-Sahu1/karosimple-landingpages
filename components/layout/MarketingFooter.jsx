@@ -7,7 +7,7 @@ import { WhatsAppButton } from "../ui/WhatsAppButton";
 
 export function MarketingFooter() {
   return (
-    <footer className="bg-[#0F1221] text-[#F1F5F9] border-t border-[#1E2340] pt-16 pb-8">
+    <footer className="bg-[#1B2A4A] text-[#F1F5F9] border-t border-[#253559] pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-[60px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
           {/* Brand Col */}
@@ -61,7 +61,7 @@ export function MarketingFooter() {
           ))}
         </div>
 
-        <hr className="border-[#1E2340] my-8" />
+        <hr className="border-[#253559] my-8" />
 
         {/* Bottom Metadata & Compliance */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">

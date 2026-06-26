@@ -376,7 +376,7 @@ export default function ContactPage() {
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block bg-[#25D366] hover:bg-[#1ebe5d] transition-all duration-300 rounded-[2rem] p-8 text-left text-white shadow-lg cursor-pointer relative group overflow-hidden"
+                  className="block bg-[#2D8A5A] hover:bg-[#1ebe5d] transition-all duration-300 rounded-[2rem] p-8 text-left text-white shadow-lg cursor-pointer relative group overflow-hidden"
                 >
                   <div className="space-y-6">
                     <div className="flex items-center justify-between">
