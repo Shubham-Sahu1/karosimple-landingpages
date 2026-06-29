@@ -7,7 +7,7 @@ export function LegalPageLayout({ title, lastUpdated, children }) {
     <div className="min-h-screen flex flex-col">
       <MarketingNav />
       <main className="flex-grow bg-[#F5F7FA] pt-28 pb-16">
-        <div className="max-w-3xl mx-auto px-6 bg-ks-white border border-[#EEF1F5] rounded-2xl p-8 md:p-12 shadow-sm text-left">
+        <div className="w-11/12 md:w-[80%] max-w-6xl mx-auto px-6 bg-ks-white border border-[#EEF1F5] rounded-2xl p-8 md:p-12 shadow-sm text-left">
           <h1 className="type-h1 text-ks-navy mb-2">{title}</h1>
           {lastUpdated && (
             <p className="type-body-sm text-ks-muted mb-8 font-semibold">

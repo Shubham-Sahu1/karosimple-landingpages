@@ -33,6 +33,8 @@ export const footerLinkGroups = [
       { label: "Terms of Service", href: "/terms" },
       { label: "Refund Policy", href: "/refund-policy" },
       { label: "Grievance Redressal", href: "/grievance" },
+      { label: "Review Guidelines", href: "/review-guidelines" },
+      { label: "Affiliate Terms", href: "/affiliate-terms" },
     ],
   },
 ];
