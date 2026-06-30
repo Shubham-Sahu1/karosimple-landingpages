@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function BlogCard({ post }) {
   const cleanPostSlug = post.slug ? post.slug.replace(/^\//, '') : ''
@@ -47,15 +48,17 @@ export default function BlogCard({ post }) {
         )}
 
         {post.coverImage?.asset?._ref ? (
-          <Link href={`/blog/${cleanPostSlug}`} style={{ display: 'block', width: '100%', height: '100%', overflow: 'hidden' }}>
-            <img
+          <Link href={`/blog/${cleanPostSlug}`} style={{ display: 'block', width: '100%', height: '100%', overflow: 'hidden', position: 'relative' }}>
+            <Image
               src={`https://cdn.sanity.io/images/ttsw6vso/production/${post.coverImage.asset._ref
                 .replace('image-', '')
                 .replace('-jpg', '.jpg')
                 .replace('-png', '.png')
                 .replace('-webp', '.webp')}`}
               alt={post.title}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s' }}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 hover:scale-105"
             />
           </Link>
         ) : (

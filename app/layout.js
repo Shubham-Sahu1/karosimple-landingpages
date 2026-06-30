@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import { CookieConsentBanner } from "@/components/layout/CookieConsentBanner";
+import { SiteLoader } from "@/components/layout/SiteLoader";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
@@ -74,6 +75,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-[#1B2A4A] text-[#FFFFFF] transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark" enableSystem={false}>
+          <SiteLoader />
           {children}
 
           {/* Global Toast Notifications */}

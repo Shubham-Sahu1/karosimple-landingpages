@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import { featureCategories } from "@/data/featureCategories";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -126,9 +127,11 @@ export function FeatureCategoriesSection() {
                     {isImageLeft ? (
                       /* Image is on the left */
                       <div className="relative w-full aspect-[4/3] sm:aspect-[1.5] rounded-3xl overflow-hidden border border-[#3D4F72]/50 shadow-2xl bg-[#1B2A4A]/50">
-                        <img
+                        <Image
                           src={cat.image}
                           alt={cat.name}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
                           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                         />
                       </div>
@@ -180,9 +183,11 @@ export function FeatureCategoriesSection() {
                     ) : (
                       /* Image is on the right */
                       <div className="relative w-full aspect-[4/3] sm:aspect-[1.5] rounded-3xl overflow-hidden border border-[#3D4F72]/50 shadow-2xl bg-[#1B2A4A]/50">
-                        <img
+                        <Image
                           src={cat.image}
                           alt={cat.name}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
                           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                         />
                       </div>

@@ -2,6 +2,7 @@ import { sanityClient } from '@/lib/sanity'
 import { singleAuthorQuery, postsByAuthorQuery, allAuthorSlugsQuery } from '@/lib/queries'
 import BlogCard from '@/components/blog/BlogCard'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { MarketingNav } from '@/components/layout/MarketingNav'
 import { MarketingFooter } from '@/components/layout/MarketingFooter'
@@ -56,10 +57,12 @@ export default async function AuthorPage({ params }) {
           marginBottom: '50px'
         }}>
           {author.photo ? (
-            <img
+            <Image
               src={author.photo}
               alt={author.name}
-              style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', border: '3px solid #3DAA72' }}
+              width={120}
+              height={120}
+              className="rounded-full object-cover border-[3px] border-[#3DAA72]"
             />
           ) : (
             <div style={{ width: '120px', height: '120px', borderRadius: '50%', backgroundColor: '#3DAA72', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFF', fontWeight: 'bold', fontSize: '3rem' }}>

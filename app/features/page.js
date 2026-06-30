@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { FeatureCategoriesSection } from "@/components/sections/FeatureCategoriesSection";
 import { FeatureCompareTable } from "@/components/sections/FeatureCompareTable";
 import { AddOnsSection } from "@/components/sections/AddOnsSection";
@@ -48,11 +49,13 @@ export default function FeaturesPage() {
             <div className="lg:col-span-5 flex justify-center order-2 lg:order-1">
               <div className="relative w-full max-w-[440px] aspect-[4/3] sm:aspect-[1.4] lg:aspect-auto lg:h-[420px]">
                 {/* Laptop Image with rounded border */}
-                <div className="w-full h-full rounded-[2rem] border-[13px] border-[#253559] overflow-hidden shadow-card bg-[#253559]">
-                  <img
+                <div className="w-full h-full rounded-[2rem] border-[13px] border-[#253559] overflow-hidden shadow-card bg-[#253559] relative">
+                  <Image
                     src="/features-hero-laptop.jpg"
                     alt="One platform to collect, manage and grow your reviews"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 440px"
+                    className="object-cover"
                   />
                 </div>
 

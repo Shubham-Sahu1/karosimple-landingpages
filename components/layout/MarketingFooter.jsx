@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Mail } from "lucide-react";
 import { footerLinkGroups } from "@/data/navigation";
 import { CONTACT_EMAIL } from "@/lib/constants";
@@ -13,9 +14,11 @@ export function MarketingFooter() {
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-6 text-left">
             <Link href="/" className="inline-block outline-none">
-              <img
+              <Image
                 src="/logo-white.svg"
                 alt="Karo Simple Logo"
+                width={160}
+                height={32}
                 className="h-8 w-auto object-contain"
               />
             </Link>

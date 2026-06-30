@@ -4,6 +4,7 @@ import PortableTextRenderer from '@/components/blog/PortableTextRenderer'
 import CommentSection from '@/components/blog/CommentSection'
 import BlogCard from '@/components/blog/BlogCard'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { MarketingNav } from '@/components/layout/MarketingNav'
 import { MarketingFooter } from '@/components/layout/MarketingFooter'
@@ -59,6 +60,22 @@ export default async function BlogPostPage({ params }) {
   const linkedinShare = `https://www.linkedin.com/sharing/share-offsite/?url=${postUrl}`
   const whatsappShare = `https://api.whatsapp.com/send?text=${shareText}%20${postUrl}`
 
+  
+  const coverRef = post.coverImage?.asset?._ref;
+  let coverWidth = 800;
+  let coverHeight = 450;
+  if (coverRef) {
+    const refParts = coverRef.split('-');
+    const dimensions = refParts[2];
+    if (dimensions) {
+      const [w, h] = dimensions.split('x').map(Number);
+      if (w && h) {
+        coverWidth = w;
+        coverHeight = h;
+      }
+    }
+  }
+
   return (
     <>
       <MarketingNav />
@@ -72,14 +89,17 @@ export default async function BlogPostPage({ params }) {
           {/* Cover Image */}
           {post.coverImage?.asset?._ref && (
             <div style={{ marginBottom: '30px', borderRadius: '16px', overflow: 'hidden' }}>
-              <img
+              <Image
                 src={`https://cdn.sanity.io/images/ttsw6vso/production/${post.coverImage.asset._ref
                   .replace('image-', '')
                   .replace('-jpg', '.jpg')
                   .replace('-png', '.png')
                   .replace('-webp', '.webp')}`}
                 alt={post.title}
-                style={{ width: '100%', height: 'auto' }}
+                width={coverWidth}
+                height={coverHeight}
+                className="w-full h-auto"
+                priority
               />
             </div>
           )}
@@ -104,10 +124,12 @@ export default async function BlogPostPage({ params }) {
               {post.author?.name && (
                 <span style={{ display: 'flex', alignItems: 'center', gap: '8px', marginRight: '15px' }}>
                   {post.author.photo && (
-                    <img
+                    <Image
                       src={post.author.photo}
                       alt={post.author.name}
-                      style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }}
+                      width={28}
+                      height={28}
+                      className="rounded-full object-cover"
                     />
                   )}
                   {post.author.slug ? (

@@ -1,6 +1,7 @@
 'use client'
 
 import { PortableText } from '@portabletext/react'
+import Image from 'next/image'
 
 const components = {
   types: {
@@ -11,10 +12,22 @@ const components = {
         .replace('-jpg', '.jpg')
         .replace('-png', '.png')
         .replace('-webp', '.webp')}`
+      
+      // Parse Sanity image dimensions (e.g. image-asset-1200x800-jpg)
+      const refParts = value.asset._ref.split('-')
+      const dimensions = refParts[2]
+      const [width, height] = dimensions ? dimensions.split('x').map(Number) : [800, 600]
+
       return (
-        <figure>
-          <img src={url} alt={value.alt || ''} style={{ width: '100%', height: 'auto' }} />
-          {value.caption && <figcaption>{value.caption}</figcaption>}
+        <figure className="my-6">
+          <Image
+            src={url}
+            alt={value.alt || ''}
+            width={width}
+            height={height}
+            className="w-full h-auto rounded-xl object-contain"
+          />
+          {value.caption && <figcaption className="text-center text-xs text-[#94A3B8] mt-2">{value.caption}</figcaption>}
         </figure>
       )
     },

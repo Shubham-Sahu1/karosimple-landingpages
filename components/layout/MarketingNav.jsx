@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { headerNavLinks } from "@/data/navigation";
@@ -55,10 +56,13 @@ export function MarketingNav() {
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center outline-none">
-            <img
+            <Image
               src="/logo-white.svg"
               alt="Karo Simple Logo"
+              width={150}
+              height={30}
               className="h-[30px] w-auto object-contain"
+              priority
             />
           </Link>
 
