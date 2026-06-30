@@ -179,20 +179,20 @@ export function HeroSection() {
           </div>
 
           {/* Heading H1 (Inter 800) */}
-          <h1 className="font-sans font-extrabold text-[2.6rem] md:text-[3.8rem] lg:text-[4.8rem] leading-[1.1] tracking-tight text-white max-w-[840px] mb-6">
+          <h1 className="font-sans font-extrabold text-[2.2rem] xs:text-[2.5rem] sm:text-[3.0rem] md:text-[3.8rem] lg:text-[4.5rem] xl:text-[4.8rem] leading-[1.1] tracking-tight text-white max-w-full px-4 sm:max-w-[600px] md:max-w-[850px] lg:max-w-none mb-6">
             Turn Every Happy Customer
             <br />
             <span className="text-[#3DAA72]">
               Into a 5-Star Review
-            </span>
-            <br />
+            </span>{" "}
+            <br className="block sm:hidden" />
             Automatically.
           </h1>
 
           {/* Subheading */}
-          <p className="font-sans text-[1.12rem] text-[#CBD5E1] max-w-[580px] leading-relaxed mb-10">
-            Customers scan a QR code and leave a real review in seconds.{" "}
-            <span className="text-[#FFFFFF] font-bold">
+          <p className="font-sans text-[1.12rem] text-[#E2E8F0] max-w-[620px] leading-relaxed mb-10">
+            Customers scan a QR code and leave a real review in seconds.
+            <span className="block text-[#FFFFFF] font-bold mt-2">
               Unhappy ones get routed to private feedback, before they go public.
             </span>
           </p>
@@ -217,7 +217,7 @@ export function HeroSection() {
           </div>
 
           {/* Trust Strip */}
-          <div className="flex flex-wrap justify-center gap-x-7 gap-y-3 mt-14 text-[#CBD5E1] font-sans font-medium text-[0.85rem]">
+          <div className="flex flex-wrap justify-center gap-x-7 gap-y-3 mt-14 text-[#E2E8F0] font-sans font-medium text-[0.85rem]">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#3DAA72] shadow-[0_0_8px_#3DAA72]" />
               <span>Free to start</span>

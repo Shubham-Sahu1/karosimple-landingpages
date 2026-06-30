@@ -12,7 +12,7 @@ export const featureCategories = [
       "Dynamic QR: change the destination without reprinting (PRO)",
       "Per-employee QR codes so you know which staff member drove which review",
     ],
-    image: "/features/smart-qr-codes.png",
+    image: "/features/smart-qr-codes.jpeg",
   },
   {
     id: "cat-2",
@@ -27,7 +27,7 @@ export const featureCategories = [
       "SEO keyword injection so your reviews mention what Google looks for",
       "Duplicate detection so no two customers see the exact same review suggestion",
     ],
-    image: "/features/ai-review-generator.png",
+    image: "/features/ai-review-suggestion.png",
   },
   {
     id: "cat-3",
@@ -70,7 +70,7 @@ export const featureCategories = [
       "Review length preference report: do your customers prefer short or detailed?",
       "Monthly SEO impact report in PDF: track your Google ranking progress (PRO)",
     ],
-    image: "/features/analytics-insights.png",
+    image: "/features/features-analytics.png",
   },
   {
     id: "cat-6",
@@ -84,6 +84,6 @@ export const featureCategories = [
       "Gold, silver and bronze trophy badges to gamify performance",
       "Deactivate a staff member without losing their historical data",
     ],
-    image: "/features/staff-tracking.png",
+    image: "/features/employee-tracking.png",
   },
 ];

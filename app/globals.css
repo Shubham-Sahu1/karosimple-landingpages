@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: dark;
   /* Karo Simple Original Brand Colors */
   --ks-green: #3DAA72;
   --ks-green-dark: #2D8A5A;
@@ -148,6 +149,7 @@
 
 /* Global scroll behaviors and body resets */
 body {
+  color-scheme: dark;
   background-color: var(--ks-navy);
   color: var(--ks-white);
   font-family: var(--font-sans);

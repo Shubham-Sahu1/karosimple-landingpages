@@ -10,7 +10,7 @@ import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { BeforeAfterSection } from "@/components/sections/BeforeAfterSection";
 import { PlatformIntegrations } from "@/components/sections/PlatformIntegrations";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
-import { ROICalculatorSection } from "@/components/sections/ROICalculatorSection";
+import { AnalyticsSection } from "@/components/sections/AnalyticsSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { PricingPreviewSection } from "@/components/sections/PricingPreviewSection";
 import { FAQSection } from "@/components/sections/FAQSection";
@@ -75,8 +75,8 @@ export default function Home() {
         {/* SECTION 10: INDUSTRIES */}
         <IndustriesSection />
 
-        {/* SECTION 11: ROI CALCULATOR */}
-        <ROICalculatorSection />
+        {/* SECTION 11: COMPLETE ANALYTICS */}
+        <AnalyticsSection />
 
         {/* SECTION 12: WHO IT IS FOR (TESTIMONIALS PLACEHOLDER) */}
         <TestimonialsSection />

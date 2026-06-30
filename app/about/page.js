@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { MarketingNav } from "@/components/layout/MarketingNav";
 import { MarketingFooter } from "@/components/layout/MarketingFooter";
 import { REGISTER_URL } from "@/lib/constants";
@@ -73,11 +74,13 @@ export default function AboutPage() {
               <div className="lg:col-span-5 flex justify-center">
                 <div className="relative w-full max-w-[420px] aspect-[4/3] sm:aspect-[1.4] lg:aspect-auto lg:h-[350px]">
                   {/* Image container with rounded corners and overflow hidden */}
-                  <div className="w-full h-full rounded-3xl overflow-hidden border border-[#3D4F72]/30 shadow-card bg-[#253559]">
-                    <img
+                  <div className="w-full h-full rounded-3xl overflow-hidden border border-[#3D4F72]/30 shadow-card bg-[#253559] relative">
+                    <Image
                       src="/solving-review-problem.png"
                       alt="Solving the review problem for SMBs"
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 640px) 100vw, 420px"
+                      className="object-cover"
                     />
                   </div>
                   
@@ -159,10 +162,12 @@ export default function AboutPage() {
               {/* Left: Image Card */}
               <div className="lg:col-span-5 flex justify-center">
                 <div className="relative aspect-[3/4] w-full max-w-[340px] rounded-3xl overflow-hidden border border-[#38BDF8]/30 shadow-[0_0_35px_rgba(56,189,248,0.25)] bg-[#253559]">
-                  <img
+                  <Image
                     src="/Team Image/Shubham.png"
                     alt="Shubham Sahu"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 340px"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1B2A4A]/95 via-[#1B2A4A]/20 to-transparent" />
                 </div>
@@ -414,10 +419,12 @@ export default function AboutPage() {
               {/* Right: Image Card */}
               <div className="lg:col-span-5 flex justify-center order-1 lg:order-2">
                 <div className="relative aspect-[3/4] w-full max-w-[340px] rounded-3xl overflow-hidden border border-[#3DAA72]/30 shadow-[0_0_35px_rgba(61,170,114,0.25)] bg-[#253559]">
-                  <img
+                  <Image
                     src="/Team Image/Chandan.png"
                     alt="Chandan"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 340px"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1B2A4A]/95 via-[#1B2A4A]/20 to-transparent" />
                 </div>
@@ -478,10 +485,12 @@ export default function AboutPage() {
               ].map((member, index) => (
                 <div key={index} className="space-y-4 text-left group">
                   <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-[#3D4F72]/30 shadow-md bg-[#253559] transition-all duration-300 group-hover:border-[#3DAA72]/50 group-hover:shadow-[0_0_20px_rgba(61,170,114,0.15)]">
-                    <img
+                    <Image
                       src={member.image}
                       alt={member.name}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 640px) 100vw, 340px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1B2A4A]/80 via-transparent to-transparent" />
                   </div>
