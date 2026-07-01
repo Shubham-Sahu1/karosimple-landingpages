@@ -27,7 +27,7 @@ export function CTABannerSection() {
           Don’t let a bad rating
           <br />
           <span className="text-[#3DAA72]">
-            cost you your business.
+            cost you & your business.
           </span>
         </h2>
 
@@ -54,10 +54,10 @@ export function CTABannerSection() {
 
         {/* Trust Strip */}
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 pt-8 text-[#CBD5E1] font-sans font-medium text-[0.82rem]">
-          <span>✅ Free plan forever available</span>
-          <span>✅ Cancel anytime</span>
-          <span>✅ 5-minute setup</span>
-          <span>✅ 100% Google-compliant</span>
+          <span>✅ Trusted by businesses across India</span>
+          <span>✅ Simple dashboard, easy to manage</span>
+          <span>✅ Scale features as your business grows</span>
+          <span>✅ Seamless integration with your workflow</span>
         </div>
       </div>
     </section>

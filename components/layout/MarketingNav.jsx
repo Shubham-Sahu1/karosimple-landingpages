@@ -62,6 +62,7 @@ export function MarketingNav() {
               width={150}
               height={30}
               className="h-[30px] w-auto object-contain"
+              style={{ width: "auto" }}
               priority
             />
           </Link>

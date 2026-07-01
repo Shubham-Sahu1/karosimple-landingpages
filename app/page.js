@@ -8,12 +8,14 @@ import { ProblemStorySection } from "@/components/sections/ProblemStorySection";
 import { PainComparisonSection } from "@/components/sections/PainComparisonSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { BeforeAfterSection } from "@/components/sections/BeforeAfterSection";
+import { ReviewShieldSection } from "@/components/sections/ReviewShieldSection";
 import { PlatformIntegrations } from "@/components/sections/PlatformIntegrations";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
 import { AnalyticsSection } from "@/components/sections/AnalyticsSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { PricingPreviewSection } from "@/components/sections/PricingPreviewSection";
 import { FAQSection } from "@/components/sections/FAQSection";
+import { ContactFormSection } from "@/components/sections/ContactFormSection";
 import { CTABannerSection } from "@/components/sections/CTABannerSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationSchema } from "@/components/seo/schemas/organization";
@@ -69,6 +71,9 @@ export default function Home() {
         {/* SECTION 8: BEFORE VS AFTER REVIEWS */}
         <BeforeAfterSection />
 
+        {/* SECTION 8.5: NEGATIVE REVIEW SHIELD */}
+        <ReviewShieldSection />
+
         {/* SECTION 9: PLATFORM INTEGRATIONS */}
         <PlatformIntegrations />
 
@@ -86,6 +91,9 @@ export default function Home() {
 
         {/* SECTION 14: FAQ ACCORDION */}
         <FAQSection />
+
+        {/* SECTION 14.5: CONTACT FORM */}
+        <ContactFormSection />
 
         {/* SECTION 15: FINAL CTA */}
         <CTABannerSection />

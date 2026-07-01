@@ -50,6 +50,7 @@ export function SiteLoader() {
             height={640}
             className="w-full h-full object-cover"
             priority
+            unoptimized
           />
         </div>
 
@@ -62,6 +63,7 @@ export function SiteLoader() {
             height={360}
             className="w-full h-full object-cover"
             priority
+            unoptimized
           />
         </div>
       </div>
