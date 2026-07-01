@@ -186,7 +186,7 @@ export default function FeaturesPage() {
             </a>
           </div>
           <p className="mt-7 text-[0.875rem] text-white/50">
-            Free plan available forever · Cancel paid plans anytime · 100% Google-compliant
+            Designed for startups, shops & enterprises &bull; Add‑ons available for every business size &bull; Instant updates, no coding required &bull; Support that understands your business needs
           </p>
         </div>
       </section>

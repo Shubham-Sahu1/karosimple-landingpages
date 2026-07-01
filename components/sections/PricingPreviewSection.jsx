@@ -5,7 +5,7 @@ import Link from "next/link";
 import { REGISTER_URL } from "@/lib/constants";
 
 export function PricingPreviewSection() {
-  const [cycle, setCycle] = useState("monthly");
+  const [cycle, setCycle] = useState("annual");
 
   const plans = [
     {
@@ -69,9 +69,9 @@ export function PricingPreviewSection() {
           <h2 className="font-sans font-bold text-[2rem] md:text-[3rem] leading-tight text-white">
             Start free. Scale when you’re ready.
           </h2>
-          <p className="font-sans text-[1.1rem] text-[#CBD5E1] max-w-[620px] mx-auto leading-relaxed">
-            No credit card required. Cancel anytime. All plans include QR code + Google integration.
-          </p>
+          {/* <p className="font-sans text-[1.1rem] text-[#CBD5E1] max-w-[620px] mx-auto leading-relaxed">
+            No credit card required. 
+          </p> */}
         </div>
 
         {/* Billing Toggle (3 Pill Buttons) */}
@@ -116,12 +116,13 @@ export function PricingPreviewSection() {
             const priceDisplay = `₹${plan.price[cycle].toLocaleString("en-IN")}`;
 
             return (
-              <div
+              <Link
                 key={i}
-                className={`bg-[#253559] border border-[#3D4F72] rounded-2xl p-6 lg:p-8 flex flex-col justify-between relative transition-all duration-300 hover:scale-[1.02] ${
+                href="/pricing"
+                className={`bg-[#253559] border border-[#3D4F72] rounded-2xl p-6 lg:p-8 flex flex-col justify-between relative transition-all duration-300 hover:scale-[1.02] cursor-pointer group/card ${
                   plan.isPopular
-                    ? "border-[#3DAA72] shadow-[0_0_40px_rgba(61,170,114,0.08)]"
-                    : "shadow-card"
+                    ? "border-[#3DAA72] shadow-[0_0_40px_rgba(61,170,114,0.08)] hover:shadow-[0_0_40px_rgba(61,170,114,0.2)]"
+                    : "shadow-card hover:border-[#CBD5E1]"
                 }`}
               >
                 {/* Popular Badge */}
@@ -152,22 +153,20 @@ export function PricingPreviewSection() {
                 {/* CTA Button */}
                 <div className="mt-8">
                   {plan.isPopular ? (
-                    <a
-                      href={plan.ctaHref}
-                      className="block w-full text-center font-sans font-semibold text-[0.95rem] text-white bg-[#3DAA72] py-3.5 rounded-full hover:scale-[1.01] transition-transform shadow-[0_4px_12px_rgba(61,170,114,0.3)] hover:bg-[#2D8A5A]"
+                    <div
+                      className="block w-full text-center font-sans font-semibold text-[0.95rem] text-white bg-[#3DAA72] py-3.5 rounded-full group-hover/card:scale-[1.02] transition-transform shadow-[0_4px_12px_rgba(61,170,114,0.3)]"
                     >
                       {plan.ctaText}
-                    </a>
+                    </div>
                   ) : (
-                    <a
-                      href={plan.ctaHref}
-                      className="block w-full text-center font-sans font-semibold text-[0.95rem] text-[#F1F5F9] bg-transparent border border-[#3D4F72] py-3.5 rounded-full hover:border-[#CBD5E1] hover:bg-[#1B2A4A] transition-all duration-300"
+                    <div
+                      className="block w-full text-center font-sans font-semibold text-[0.95rem] text-[#F1F5F9] bg-transparent border border-[#3D4F72] py-3.5 rounded-full group-hover/card:border-[#CBD5E1] group-hover/card:bg-[#1B2A4A] transition-all duration-300"
                     >
                       {plan.ctaText}
-                    </a>
+                    </div>
                   )}
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

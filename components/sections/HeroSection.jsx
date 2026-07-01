@@ -220,19 +220,19 @@ export function HeroSection() {
           <div className="flex flex-wrap justify-center gap-x-7 gap-y-3 mt-14 text-[#E2E8F0] font-sans font-medium text-[0.85rem]">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#3DAA72] shadow-[0_0_8px_#3DAA72]" />
-              <span>Free to start</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#3DAA72] shadow-[0_0_8px_#3DAA72]" />
-              <span>Works on phone</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#3DAA72] shadow-[0_0_8px_#3DAA72]" />
-              <span>Setup in 5 minutes</span>
+              <span>Setup in just 5 minutes</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#3DAA72] shadow-[0_0_8px_#3DAA72]" />
               <span>No app or login needed for customers</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#3DAA72] shadow-[0_0_8px_#3DAA72]" />
+              <span>Works on phone, tablet & desktop</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#3DAA72] shadow-[0_0_8px_#3DAA72]" />
+              <span>Email, Ticket & WhatsApp Support Included</span>
             </div>
           </div>
         </div>

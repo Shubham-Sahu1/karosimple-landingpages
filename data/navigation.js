@@ -10,20 +10,12 @@ export const headerNavLinks = [
 
 export const footerLinkGroups = [
   {
-    title: "Product",
-    links: [
-      { label: "Features", href: "/features" },
-      { label: "How It Works", href: "/#how-it-works" },
-      { label: "Pricing Plans", href: "/pricing" },
-      { label: "Book a Demo", href: "/contact" },
-    ],
-  },
-  {
     title: "Company",
     links: [
+      { label: "Features", href: "/features" },
+      { label: "Pricing Plans", href: "/pricing" },
       { label: "About Us", href: "/about" },
       { label: "Contact Support", href: "/contact" },
-      { label: "WhatsApp Support", href: "https://wa.me/919999999999" },
     ],
   },
   {
@@ -34,7 +26,6 @@ export const footerLinkGroups = [
       { label: "Refund Policy", href: "/refund-policy" },
       { label: "Grievance Redressal", href: "/grievance" },
       { label: "Review Guidelines", href: "/review-guidelines" },
-      { label: "Affiliate Terms", href: "/affiliate-terms" },
     ],
   },
 ];

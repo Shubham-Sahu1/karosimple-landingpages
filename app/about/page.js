@@ -770,7 +770,7 @@ export default function AboutPage() {
                   </a>
                 </div>
                 <p className="text-[0.8125rem] text-white/70">
-                  Free plan available forever. Takes 5 minutes to set up.
+                  Built for local shops & online sellers alike &bull; Simple dashboard, easy to manage &bull; Setup in minutes, no hassle &bull; Support that understands your business
                 </p>
               </div>
             </div>

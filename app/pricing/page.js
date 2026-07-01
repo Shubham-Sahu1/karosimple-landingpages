@@ -166,7 +166,7 @@ function FAQItem({ item, isOpen, onToggle }) {
 // ── Main Pricing Page ───────────────────────────────────────────────────────
 
 export default function PricingPage() {
-  const [billing, setBilling] = useState("monthly");
+  const [billing, setBilling] = useState("annual");
   const [openFAQ, setOpenFAQ] = useState("pfaq-1");
 
   const toggleFAQ = (id) => setOpenFAQ((prev) => (prev === id ? null : id));

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -184,13 +185,23 @@ export function PainComparisonSection() {
         </div>
 
         {/* Closing Question Block */}
-        <div className="w-full max-w-4xl mx-auto bg-[#253559] border border-[#3D4F72] rounded-3xl p-8 md:p-10 text-center mt-14 space-y-4 shadow-pricing">
-          <h3 className="font-sans font-bold text-[1.8rem] md:text-[2.2rem] text-white">
-            Which business are your customers choosing?
-          </h3>
-          <p className="font-sans text-[1rem] text-[#CBD5E1] max-w-lg mx-auto">
-            The answer is obvious. The question is: which one represents your business?
-          </p>
+        <div className="w-full max-w-4xl mx-auto bg-[#253559] border border-[#3D4F72] rounded-3xl p-8 md:p-10 text-center mt-14 space-y-6 shadow-pricing">
+          <div className="space-y-4">
+            <h3 className="font-sans font-bold text-[1.8rem] md:text-[2.2rem] text-white">
+              Which business are your customers choosing?
+            </h3>
+            <p className="font-sans text-[1rem] text-[#CBD5E1] max-w-lg mx-auto">
+              The answer is obvious. The question is: which one represents your business?
+            </p>
+          </div>
+          <div className="flex justify-center pt-2">
+            <Link
+              href="/pricing"
+              className="group relative inline-flex items-center justify-center font-sans font-semibold text-[0.9rem] sm:text-[1rem] text-[#FFFFFF] bg-[#3DAA72] px-6 sm:px-[36px] py-[15px] rounded-full transform hover:scale-[1.02] hover:-translate-y-[2px] transition-all duration-300 shadow-[0_4px_12px_rgba(61,170,114,0.3)] hover:shadow-[0_8px_32px_rgba(61,170,114,0.45)] whitespace-nowrap"
+            >
+              Stop Waiting, Start Winning
+            </Link>
+          </div>
         </div>
       </div>
     </section>
